@@ -1,10 +1,20 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Tinos', serif;
+  color: white;
+}
+
+.home-background, .page-background {
+  height: 100%;
+  min-height: 100vh;
+}
+
+.home-background {
+  background: repeating-linear-gradient(#500909 0%, #9A9004 100vh, #FFFFFF 200vh, #500909 300vh);
+}
+
+.page-background {
+  background: linear-gradient(#9A9004 0%, #FFFFFF 100%);
 }
 
 code {
