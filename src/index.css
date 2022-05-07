@@ -16,8 +16,3 @@
 .page-background {
   background: linear-gradient(#9A9004 0%, #FFFFFF 100%);
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
