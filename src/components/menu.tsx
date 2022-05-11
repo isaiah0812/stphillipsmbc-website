@@ -21,7 +21,7 @@ const MenuItem = ({ path, title }: IRoute) => {
         color: 'black',
         fontSize: '2em',
         width: '100%',
-        border: `0.5px solid ${borderColor}`,
+        border: `1px solid ${borderColor}`,
         transition: 'border 0.3s'
       }}
     >
@@ -38,7 +38,7 @@ const Menu = () => {
 
   return (
     <React.Fragment>
-      <Navbar style={{ backgroundColor: 'transparent', zIndex: 1, position: 'absolute', width: '100%', padding: 0 }} sticky="top">
+      <Navbar style={{ backgroundColor: 'transparent', zIndex: 1, position: 'absolute', width: '100%', padding: 0, top: 0 }} sticky="top">
         <Container fluid style={{ display: 'flex', width: '100%', padding: '1%', alignItems: 'flex-start' }}>
           <Navbar.Brand href="/" style={{ padding: 0 }}>
             <h3>St. Phillips Missionary Baptist Church</h3>
