@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Image } from 'react-bootstrap';
 import { SPButton } from '../../components/button';
+import { Divide, Header, ShadowBox } from '../../components/styledComponents';
 
 const Home = () => {
   return (
@@ -26,7 +27,7 @@ const Home = () => {
         }}>
           <h1 style={{ fontSize: '4em' }}>Welcome to St. Phillips Missionary Baptist Church</h1>
           <h3 style={{ fontStyle: 'italic' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
-          <hr style={{ border: '0.3em solid #707070', width: '10%', color: '#707070', opacity: 1, borderRadius: '100vw' }} />
+          <Divide width="10%" />
           <h2>Sunday Morning Worship - 11:00 AM</h2>
           <h2>Wednesday Night Bible Study - 7:00 PM</h2>
           <h2>Sunday School - 10:00 AM</h2>
@@ -34,9 +35,9 @@ const Home = () => {
         </Container>
       </Container>
       <Container fluid style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100vh', maxHeight: 1080 }}>
-        <h1 style={{ fontSize: '3em', textAlign: 'center' }}>Join Us For Our Next Service!</h1>
-        <hr style={{ border: '0.3em solid #707070', width: '5%', color: '#707070', opacity: 1, borderRadius: '100vw' }} />
-        <Container fluid style={{ backgroundColor: 'rgba(71, 71, 71, 0.39)', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', padding: '1%', width: '100%', maxWidth: 1650, alignItems: 'center', minHeight: '75%' }}>
+        <Header>Join Us For Our Next Service!</Header>
+        <Divide width="5%" />
+        <ShadowBox fluid style={{ backgroundColor: 'rgba(71, 71, 71, 0.39)', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', padding: '1%', width: '100%', maxWidth: 1650, alignItems: 'center', minHeight: '75%' }}>
           <Container style={{ width: '45%' }}>
             <h1 style={{ fontSize: '3em' }}>Next Event: A Church Service Where People Do Church</h1>
             <h2 style={{ fontStyle: 'italic' }}>Time: Wednesday, July 28, 2021, 6:05 PM</h2>
@@ -48,11 +49,11 @@ const Home = () => {
           <Container style={{ width: '45%', height: '100%', backgroundColor: 'blue', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             Google
           </Container>
-        </Container>
+        </ShadowBox>
       </Container>
       <Container fluid style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', padding: '2%', height: '100vh', maxHeight: 1080 }}>
         <Image src="/pops.jpg" style={{ width: '25%', margin: 0 }} />
-        <Container fluid style={{ width: '35%', backgroundColor: 'rgba(71, 71, 71, 0.39)', padding: '1.5%', margin: 0 }}>
+        <ShadowBox fluid style={{ width: '35%', padding: '1.5%', margin: 0 }}>
           <h2 style={{ fontSize: '2.5em', textAlign: 'center' }}>About The Pastor</h2>
           <p style={{ textOverflow: 'ellipsis', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 20, WebkitBoxOrient: 'vertical' }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -124,7 +125,7 @@ const Home = () => {
             fermentum iaculis. Erat imperdiet sed euismod nisi porta.
           </p>
           <SPButton text="Read More" href="/staff" width="100%" />
-        </Container>
+        </ShadowBox>
       </Container>
     </Container>
   )

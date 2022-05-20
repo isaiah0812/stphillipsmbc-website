@@ -18,5 +18,5 @@ html {
 }
 
 .page-background {
-  background: linear-gradient(#9A9004 0%, #FFFFFF 100%);
+  background: linear-gradient(#9A9004 0%, #FFFFFF 100vh);
 }

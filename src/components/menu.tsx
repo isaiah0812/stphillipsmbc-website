@@ -38,7 +38,7 @@ const Menu = () => {
 
   return (
     <React.Fragment>
-      <Navbar style={{ backgroundColor: 'transparent', zIndex: 1, position: 'absolute', width: '100%', padding: 0, top: 0 }} sticky="top">
+      <Navbar style={{ backgroundColor: 'transparent', width: '100%', zIndex: 1, position: 'absolute', padding: 0, top: 0 }} sticky="top">
         <Container fluid style={{ display: 'flex', width: '100%', padding: '1%', alignItems: 'flex-start' }}>
           <Navbar.Brand href="/" style={{ padding: 0 }}>
             <h3>St. Phillips Missionary Baptist Church</h3>
