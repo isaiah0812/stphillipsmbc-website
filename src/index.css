@@ -20,3 +20,13 @@ html {
 .page-background {
   background: linear-gradient(#9A9004 0%, #FFFFFF 100vh);
 }
+
+.square::after {
+  content: "";
+  padding-bottom: 100%;
+}
+
+.table td {
+  border-bottom-color: #DBDBDB;
+  /* border-bottom-color: red; */
+}

@@ -46,7 +46,7 @@ const Home = () => {
             <SPButton text="Visit St. Phillips MBC" href="/contact" style={{ margin: '1.25% 0px' }} />
             <SPButton text="Watch Service Live!" onClick={() => window.scrollTo({top: 0, left: 0, behavior: 'smooth'})} style={{ margin: '1.25% 0px' }} />
           </Container>
-          <Container style={{ width: '45%', height: '100%', backgroundColor: 'blue', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <Container className="square" style={{ width: '45%', height: '100%', backgroundColor: 'blue', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             Google
           </Container>
         </ShadowBox>
