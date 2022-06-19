@@ -7,16 +7,10 @@ const Home = () => {
   return (
     <Container fluid className="home-background">
       <Container fluid style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap-reverse', justifyContent: 'center', height: '100vh', maxHeight: 1080, alignItems: 'center', padding: 120 }}>
-        <Container style={{
-          display: 'flex',
-          width: '45%',
-          height: 'calc(100vh * .50)',
-          backgroundColor: 'red',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}>
-          YouTube
-        </Container>
+        <iframe
+          src="https://www.youtube.com/embed/live_stream?channel=UChKql4EVoCgSpWNSwqhxOsA"
+          style={{ border: 0, width: '45%', height: 'calc(100vh * .50)' }}
+          allowFullScreen />
         <Container style={{
           display: 'flex',
           width: '45%',
