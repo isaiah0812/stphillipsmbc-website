@@ -55,7 +55,10 @@ export const SPButton = (props: ButtonProps) => {
   // to ButtonTemp, which is the styled Button seen on screen.
   return props.href ? (
     <Link to={props.href}>
-      <ButtonTemp props={props} />
+      <ButtonTemp props={{...props, onClick: () => {
+        props.onClick && props.onClick()
+        window.scrollTo({ top: 0 })
+      }}} />
     </Link>
   ) : (
     <ButtonTemp props={props} />
