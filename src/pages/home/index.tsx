@@ -23,8 +23,8 @@ const Home = () => {
           <h3 style={{ fontStyle: 'italic' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
           <Divide width="10%" />
           <h2>Sunday Morning Worship - 11:00 AM</h2>
-          <h2>Wednesday Night Bible Study - 7:00 PM</h2>
           <h2>Sunday School - 10:00 AM</h2>
+          <h2>Wednesday Night Bible Study - 7:00 PM</h2>
           <SPButton text="Watch Service Live" onClick={() => window.scrollTo({top: 0, left: 0, behavior: 'smooth'})} style={{ margin: '1% 0px' }} />
         </Container>
       </Container>
@@ -40,9 +40,11 @@ const Home = () => {
             <SPButton text="Visit St. Phillips MBC" href="/contact" style={{ margin: '1.25% 0px' }} />
             <SPButton text="Watch Service Live!" onClick={() => window.scrollTo({top: 0, left: 0, behavior: 'smooth'})} style={{ margin: '1.25% 0px' }} />
           </Container>
-          <Container className="square" style={{ width: '45%', height: '100%', backgroundColor: 'blue', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            Google
-          </Container>
+          <iframe
+            style={{ border: 0, width: '45%', height: '100%'}}
+            referrerPolicy="no-referrer-when-downgrade"
+            src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_MAPS_EMBED_KEY}&q=7801+N+Lamar+Blvd,Austin,TX,78752`}
+            allowFullScreen />
         </ShadowBox>
       </Container>
       <Container fluid style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', padding: '2%', height: '100vh', maxHeight: 1080 }}>

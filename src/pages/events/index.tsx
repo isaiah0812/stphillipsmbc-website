@@ -8,10 +8,12 @@ const Events = (): JSX.Element => {
     <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1em' }}>
       <Header style={{ transform: 'translate(0px, 10%)' }}>Upcoming Events</Header>
       <Divide width="5%"/>
-      <Container fluid style={{ display: 'flex', flexDirection: 'row', padding: 0 }}>
-        <Container className="square" style={{ width: '40%', backgroundColor: 'blue', display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '1em 1em 1em 0px' }}>
-          Google
-        </Container>
+      <Container fluid style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', padding: 0 }}>
+        <iframe
+          style={{ border: 0, width: '40%', height: '100%'}}
+          referrerPolicy="no-referrer-when-downgrade"
+          src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_MAPS_EMBED_KEY}&q=7801+N+Lamar+Blvd,Austin,TX,78752`}
+          allowFullScreen />
         <ShadowBox fluid style={{ textAlign: 'left', margin: '1em 0px 1em 1em', padding: '1em' }}>
           <h1 style={{ fontSize: '3em' }}>Next Event: A Church Service Where People Do Church</h1>
           <h2 style={{ fontStyle: 'italic' }}>Time: Wednesday, July 28, 2021, 6:05 PM</h2>
