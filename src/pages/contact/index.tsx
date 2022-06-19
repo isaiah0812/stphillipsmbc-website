@@ -16,9 +16,11 @@ const Contact = () => {
       <Header style={{ transform: 'translate(0px, 10%)' }}>Contact St. Phillips </Header>
       <Divide width="5%"/>
       <Container fluid style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-        <Container className="square" style={{ width: '40%', backgroundColor: 'blue', display: 'flex', justifyContent: 'center', alignItems: 'center', margin: '1em 1em 1em 0px' }}>
-          Google
-        </Container>
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.1245356258205!2d-97.71244058456514!3d30.34741041115083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644cbcd47b32e57%3A0xc7d68994921fb949!2s7801%20N%20Lamar%20Blvd%2C%20Austin%2C%20TX%2078752!5e0!3m2!1sen!2sus!4v1655430584623!5m2!1sen!2sus"
+          style={{ border: 0, width: '40%', height: '50vh', maxHeight: 464 }}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade" />
         <Container style={{ width: '40%', textAlign: 'left' }}>
           <ShadowBox style={{ width: '100%', padding: '2%' }}>
             <Row>
@@ -27,7 +29,7 @@ const Contact = () => {
                 <address>
                   7801 N. Lamar Blvd<br />
                   Suite E178<br />
-                  Autin, Texas, 78752<br />
+                  Austin, Texas, 78752<br />
                 </address>
               </Col>
               <Col>
