@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import { IRoute, routes } from '../routes/route';
+import { IRoute, routes } from '../config/routes';
 
 const MenuItem = ({ path, title }: IRoute) => {
   const [borderColor, setBorderColor] = useState('transparent')

@@ -3,7 +3,7 @@ import './App.css';
 import { Container } from 'react-bootstrap';
 import { Route, Routes } from 'react-router-dom';
 import Menu from './components/menu';
-import { IRoute, routes } from './routes/route';
+import { IRoute, routes } from './config/routes';
 
 function App() {
   return (
