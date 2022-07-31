@@ -1,9 +1,32 @@
-import React from 'react';
+import { AxiosError, AxiosResponse } from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Container, Image } from 'react-bootstrap';
 import { SPButton } from '../../components/button';
 import { Divide, Header, ShadowBox } from '../../components/styledComponents';
+import { api } from '../../config/api';
+import { IEvent } from '../events/model';
 
 const Home = () => {
+  const noChange = true
+  const [recentEvent, setRecentEvent] = useState<IEvent | undefined>(undefined)
+
+  useEffect(() => {
+    api.get('/events/recent')
+      .then((response: AxiosResponse<IEvent>) => {
+        if (response.status === 204) setRecentEvent(undefined)
+        else {
+          const event: IEvent = {
+            ...response.data,
+            startTime: new Date(response.data.startTime),
+            endTime: new Date(response.data.endTime)
+          }
+          setRecentEvent(event)
+        }
+      }).catch((error) => {
+        console.error(error)
+      })
+  }, [noChange])
+
   return (
     <Container fluid className="home-background">
       <Container fluid style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap-reverse', justifyContent: 'center', height: '100vh', maxHeight: 1080, alignItems: 'center', padding: 120 }}>
@@ -32,19 +55,23 @@ const Home = () => {
         <Header>Join Us For Our Next Service!</Header>
         <Divide width="5%" />
         <ShadowBox fluid style={{ backgroundColor: 'rgba(71, 71, 71, 0.39)', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', padding: '1%', width: '100%', maxWidth: 1650, alignItems: 'center', minHeight: '75%' }}>
-          <Container style={{ width: '45%' }}>
-            <h1 style={{ fontSize: '3em' }}>Next Event: A Church Service Where People Do Church</h1>
-            <h2 style={{ fontStyle: 'italic' }}>Time: Wednesday, July 28, 2021, 6:05 PM</h2>
-            <h2 style={{ fontStyle: 'italic' }}>Location: 123 ABC Street, Austin, TX, 78725</h2>
-            <SPButton text="See All Upcoming Events" href="/events" style={{ margin: '1.25% 0px' }} />
-            <SPButton text="Visit St. Phillips MBC" href="/contact" style={{ margin: '1.25% 0px' }} />
-            <SPButton text="Watch Service Live!" onClick={() => window.scrollTo({top: 0, left: 0, behavior: 'smooth'})} style={{ margin: '1.25% 0px' }} />
-          </Container>
-          <iframe
-            style={{ border: 0, width: '45%', height: '100%'}}
-            referrerPolicy="no-referrer-when-downgrade"
-            src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_MAPS_EMBED_KEY}&q=7801+N+Lamar+Blvd,Austin,TX,78752`}
-            allowFullScreen />
+          {recentEvent && (
+            <>
+              <Container style={{ width: '45%' }}>
+                <h1 style={{ fontSize: '3em' }}>Next Event: {recentEvent?.name}</h1>
+                <h2 style={{ fontStyle: 'italic' }}>Time: {recentEvent?.startTime.toLocaleString("en-US", { dateStyle: 'full', timeStyle: 'short', timeZone: 'UTC' }).replace(' at ', ', ')}</h2>
+                <h2 style={{ fontStyle: 'italic' }}>Location: {recentEvent?.location}</h2>
+                <SPButton text="See All Upcoming Events" href="/events" style={{ margin: '1.25% 0px' }} />
+                <SPButton text="Visit St. Phillips MBC" href="/contact" style={{ margin: '1.25% 0px' }} />
+                <SPButton text="Watch Service Live!" onClick={() => window.scrollTo({top: 0, left: 0, behavior: 'smooth'})} style={{ margin: '1.25% 0px' }} />
+              </Container>
+              <iframe
+                style={{ border: 0, width: '45%', height: '100%'}}
+                referrerPolicy="no-referrer-when-downgrade"
+                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_MAPS_EMBED_KEY}&q=${recentEvent?.location.replace(', ', ',').replace(' ', '+')}`}
+                allowFullScreen />
+            </>
+          )}
         </ShadowBox>
       </Container>
       <Container fluid style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', padding: '2%', height: '100vh', maxHeight: 1080 }}>
