@@ -1,3 +1,5 @@
+import { printDateString } from "../../utils/printers"
+
 export interface IEvent {
   name: string
   description: string
@@ -37,11 +39,10 @@ export class TimedEventList implements ITimedEventList {
   }
 }
 
-// TODO: Figure out why addEvent replaces event instead of adds it
 export const toTimedEventLists = (events: IEvent[]): TimedEventList[] => {
   let result: TimedEventList[] = []
   for (const event of events) {
-    const eventList = result.find((eventList) => eventList.date.toLocaleDateString("en-US", { timeZone: 'UTC' }) === event.startTime.toLocaleDateString("en-US", { timeZone: 'UTC' }))
+    const eventList = result.find((eventList) => printDateString(eventList.date) === printDateString(event.startTime))
 
     if (eventList) {
       eventList?.addEvent(event)

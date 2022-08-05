@@ -4,6 +4,7 @@ import { Container, Table } from 'react-bootstrap';
 import { SPButton } from '../../components/button';
 import { Header, Divide, ShadowBox } from '../../components/styledComponents';
 import { api } from '../../config/api';
+import { printDateString, printDateTimeString, printTimeString } from '../../utils/printers';
 import { IEvent, sortByStart, sortEventLists, TimedEventList, toTimedEventLists } from './model';
 
 const Events = (): JSX.Element => {
@@ -48,8 +49,8 @@ const Events = (): JSX.Element => {
             </div>
             <ShadowBox fluid style={{ textAlign: 'left', margin: '1em 0px 1em 1em', padding: '1em' }}>
               <h1 style={{ fontSize: '3em' }}>Next Event: {mostRecent.name}</h1>
-              <h2 style={{ fontStyle: 'italic' }}>Start Time: {mostRecent.startTime.toLocaleString("en-US", { dateStyle: 'full', timeStyle: 'short', timeZone: 'UTC' }).replace(" at ", ", ")}</h2>
-              <h2 style={{ fontStyle: 'italic' }}>End Time: {mostRecent.endTime.toLocaleString("en-US", { dateStyle: 'full', timeStyle: 'short', timeZone: 'UTC' }).replace(" at ", ", ")}</h2>
+              <h2 style={{ fontStyle: 'italic' }}>Start Time: {printDateTimeString(mostRecent.startTime)}</h2>
+              <h2 style={{ fontStyle: 'italic' }}>End Time: {printDateTimeString(mostRecent.endTime)}</h2>
               <h2 style={{ fontStyle: 'italic' }}>Location: {mostRecent.location}</h2>
               <p style={{ fontStyle: 'italic' }}>{mostRecent.description}</p>
             </ShadowBox>
@@ -72,13 +73,13 @@ const Events = (): JSX.Element => {
               events.filter((eventList) => eventList.events.length > 0).map((eventList) => (
                 <>
                   <tr>
-                    <td colSpan={3} style={{ color: '#DBDBDB' }}>{eventList.date.toLocaleDateString("en-US", { dateStyle: 'full', timeZone: 'UTC' })}</td>
+                    <td colSpan={3} style={{ color: '#DBDBDB' }}>{printDateString(eventList.date)}</td>
                   </tr>
                   {
                     eventList.events.map((event) => 
                       <tr>
                         <td style={{ textAlign: 'left' }}>{event.name}</td>
-                        <td style={{ textAlign: 'center' }}>{event.startTime.toLocaleTimeString("en-US", { timeStyle: 'short', timeZone: 'UTC' })}</td>
+                        <td style={{ textAlign: 'center' }}>{printTimeString(event.startTime)}</td>
                         <td style={{ textAlign: 'right' }}>
                           <p style={{ textOverflow: 'ellipsis', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', margin: 0 }}>
                             {event.description}

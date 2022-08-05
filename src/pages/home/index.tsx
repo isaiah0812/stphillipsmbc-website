@@ -1,9 +1,10 @@
-import { AxiosError, AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Container, Image } from 'react-bootstrap';
 import { SPButton } from '../../components/button';
 import { Divide, Header, ShadowBox } from '../../components/styledComponents';
 import { api } from '../../config/api';
+import { printDateTimeString } from '../../utils/printers';
 import { IEvent } from '../events/model';
 
 const Home = () => {
@@ -59,7 +60,7 @@ const Home = () => {
             <>
               <Container style={{ width: '45%' }}>
                 <h1 style={{ fontSize: '3em' }}>Next Event: {recentEvent?.name}</h1>
-                <h2 style={{ fontStyle: 'italic' }}>Time: {recentEvent?.startTime.toLocaleString("en-US", { dateStyle: 'full', timeStyle: 'short', timeZone: 'UTC' }).replace(' at ', ', ')}</h2>
+                <h2 style={{ fontStyle: 'italic' }}>Time: {printDateTimeString(recentEvent?.startTime)}</h2>
                 <h2 style={{ fontStyle: 'italic' }}>Location: {recentEvent?.location}</h2>
                 <SPButton text="See All Upcoming Events" href="/events" style={{ margin: '1.25% 0px' }} />
                 <SPButton text="Visit St. Phillips MBC" href="/contact" style={{ margin: '1.25% 0px' }} />
