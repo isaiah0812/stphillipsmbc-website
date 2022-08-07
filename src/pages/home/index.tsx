@@ -76,7 +76,7 @@ const Home = () => {
         </ShadowBox>
       </Container>
       <Container fluid style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', padding: '2%', height: '100vh', maxHeight: 1080 }}>
-        <Image src="/pops.jpg" style={{ width: '25%', margin: 0 }} />
+        <Image src="https://res.cloudinary.com/zaemadethis/image/upload/v1659884668/spmbc/staff/pops.jpg" style={{ width: '25%', margin: 0 }} />
         <ShadowBox fluid style={{ width: '35%', padding: '1.5%', margin: 0 }}>
           <h2 style={{ fontSize: '2.5em', textAlign: 'center' }}>About The Pastor</h2>
           <p style={{ textOverflow: 'ellipsis', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 20, WebkitBoxOrient: 'vertical' }}>
