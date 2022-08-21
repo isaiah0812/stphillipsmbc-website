@@ -1,16 +1,49 @@
 import { AxiosResponse } from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Container, Table } from 'react-bootstrap';
+import { Container, Modal, Table } from 'react-bootstrap';
 import { SPButton } from '../../components/button';
 import { Header, Divide, ShadowBox } from '../../components/styledComponents';
 import { api } from '../../config/api';
 import { printDateString, printDateTimeString, printTimeString } from '../../utils/printers';
 import { IEvent, sortByStart, sortEventLists, TimedEventList, toTimedEventLists } from './model';
 
+interface EventListItemProps {
+  event: IEvent
+  onClick: () => void
+}
+
+const EventListItem = ({ event, onClick }: EventListItemProps): JSX.Element => {
+  const [hovering, setHovering] = useState<boolean>(false)
+
+  const hover = () => setHovering(true)
+  const leave = () => setHovering(false)
+
+  return (
+    <tr>
+      <td style={{ textAlign: 'left' }}>{event.name}</td>
+      <td style={{ textAlign: 'center' }}>{printTimeString(event.startTime)}</td>
+      <td style={{ textAlign: 'right' }}>
+        <p style={{ textOverflow: 'ellipsis', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', margin: 0 }}>
+          {event.description}
+        </p>
+        <button style={{ border: 0, backgroundColor: 'transparent', textDecoration: hovering ? 'underline' : 'none' }} onClick={onClick} onMouseEnter={hover} onMouseLeave={leave}>[Click to Read More]</button>
+      </td>
+    </tr>
+  )
+}
+
 const Events = (): JSX.Element => {
   const noChange = true;  // Used to make sure the useEffect only runs on component mount
   const [events, setEvents] = useState<TimedEventList[]>([] as TimedEventList[])
   const [mostRecent, setMostRecent] = useState<IEvent>()
+  const [selectedEvent, setSelectedEvent] = useState<IEvent>({ name: '', description: '', startTime: new Date(), endTime: new Date(), location: ''})
+  const [showEventModal, setShowEventModal] = useState<boolean>(false)
+
+  const openEventModal = (event: IEvent) => {
+    setSelectedEvent(event)
+    setShowEventModal(true)
+  }
+  const closeEventModal = () => setShowEventModal(false)
 
   useEffect(() => {
     api.get('/events')
@@ -75,26 +108,32 @@ const Events = (): JSX.Element => {
                   <tr>
                     <td colSpan={3} style={{ color: '#DBDBDB' }}>{printDateString(eventList.date)}</td>
                   </tr>
-                  {
-                    eventList.events.map((event) => 
-                      <tr>
-                        <td style={{ textAlign: 'left' }}>{event.name}</td>
-                        <td style={{ textAlign: 'center' }}>{printTimeString(event.startTime)}</td>
-                        <td style={{ textAlign: 'right' }}>
-                          <p style={{ textOverflow: 'ellipsis', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', margin: 0 }}>
-                            {event.description}
-                          </p>
-                          [Click to Read More]
-                        </td>
-                      </tr>
-                    )
-                  }
+                  {eventList.events.map((event) => <EventListItem event={event} onClick={() => openEventModal(event)} />)}
                 </>
               ))
             }
           </tbody>
         </Table>
       </ShadowBox>
+      <Modal show={showEventModal} onHide={closeEventModal} centered size='xl'>
+          <Modal.Header closeButton />
+          <Modal.Body style={{ display: 'flex', flexDirection: 'row' }}>
+            <div style={{ border: 0, width: '45%', minHeight: '300px', height: '100%', margin: '1em 0px 1em 0px', position: 'relative' }}>
+              <iframe
+                style={{ border: 0, width: '100%', height: '100%', position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 }}
+                referrerPolicy="no-referrer-when-downgrade"
+                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_MAPS_EMBED_KEY}&q=${selectedEvent.location.replace(', ', ',').replace(' ', '+')}`}
+                allowFullScreen />
+            </div>
+            <div style={{ margin: '1em 0px 1em 1em', padding: '1em', width: 'calc(55% - 2em)' }}>
+              <h1 style={{ fontSize: '3em', color: 'black' }}>{selectedEvent.name}</h1>
+              <h2 style={{ fontStyle: 'italic', color: 'black' }}>Start Time: {printDateTimeString(selectedEvent.startTime)}</h2>
+              <h2 style={{ fontStyle: 'italic', color: 'black' }}>End Time: {printDateTimeString(selectedEvent.endTime)}</h2>
+              <h2 style={{ fontStyle: 'italic', color: 'black' }}>Location: {selectedEvent.location}</h2>
+              <p style={{ fontStyle: 'italic', color: 'black' }}>{selectedEvent.description}</p>
+            </div>
+          </Modal.Body>
+      </Modal>
     </Container>
   )
 }
