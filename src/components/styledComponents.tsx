@@ -1,4 +1,4 @@
-import { Container } from 'react-bootstrap';
+import { Container, Form } from 'react-bootstrap';
 import styled from 'styled-components';
 
 export const Header = styled.h1`
@@ -16,4 +16,9 @@ export const Divide = styled.hr<{ width: string | number} >`
 
 export const ShadowBox = styled(Container)`
   background-color: rgba(71, 71, 71, 0.39);
+`
+
+export const SPFormGroup = styled(Form.Group)`
+  text-align: left;
+  margin: 0px 0px 1em;
 `

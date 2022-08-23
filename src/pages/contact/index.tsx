@@ -2,12 +2,7 @@ import React from 'react';
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import { SPButton } from '../../components/button';
-import { Divide, Header, ShadowBox } from '../../components/styledComponents';
-
-const ContactFormGroup = styled(Form.Group)`
-  text-align: left;
-  margin: 0px 0px 1em;
-`
+import { Divide, Header, ShadowBox, SPFormGroup } from '../../components/styledComponents';
 
 const Contact = () => {
 
@@ -39,18 +34,18 @@ const Contact = () => {
               </Col>
             </Row>
             <Form>
-              <ContactFormGroup>
+              <SPFormGroup>
                 <Form.Label>Name</Form.Label>
                 <Form.Control type="text" placeholder="Your Name" />
-              </ContactFormGroup>
-              <ContactFormGroup>
+              </SPFormGroup>
+              <SPFormGroup>
                 <Form.Label>Email Address</Form.Label>
                 <Form.Control type="email" placeholder="name@example.com" />
-              </ContactFormGroup>
-              <ContactFormGroup>
+              </SPFormGroup>
+              <SPFormGroup>
                 <Form.Label>Message</Form.Label>
                 <Form.Control as="textarea" placeholder="Message" rows={7} />
-              </ContactFormGroup>
+              </SPFormGroup>
               <SPButton text="Submit" onClick={() => alert("Submitting Message!")} />
             </Form>
           </ShadowBox>
