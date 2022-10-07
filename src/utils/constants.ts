@@ -1,0 +1,1 @@
+export const mobileThreshold = 900; // in px
