@@ -2,6 +2,27 @@ import React, { useEffect, useState } from 'react';
 import { Container, Form, Spinner } from 'react-bootstrap';
 import { PayPalButtons, PayPalScriptProvider, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import { Divide, Header, ShadowBox, SPFormGroup } from '../../components/styledComponents';
+import styled from 'styled-components';
+
+const OfferingBox = styled(ShadowBox)`
+  width: calc(50% - 1em);
+  padding: 1em;
+  margin: 0px 0.5em;
+
+  @media(max-width: 1200px) {
+    width: 100%;
+    margin: 0.5em 0px;
+  }
+`
+
+const ScriptureText = styled.p`
+  font-style: italic;
+  font-size: 1.5em;
+
+  @media(max-width: 1200px) {
+    font-size: 1em;
+  }
+`
 
 enum OfferingType {
   GENERAL = "General Offering",
@@ -68,11 +89,11 @@ const Offering = () => {
     <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1em' }}>
       <Header style={{ transform: 'translate(0px, 10%)' }}>Tithes & Offering</Header>
       <Divide width="5%"/>
-      <Container fluid style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-        <ShadowBox style={{ width: '50%', margin: 0 }}>
+      <Container fluid style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap-reverse', justifyContent: 'center' }}>
+        <OfferingBox>
           <h2>Our Reasoning For Tithes and Offering</h2>
-          <h3 style={{ fontStyle: 'italic' }}>Malachi 3:7-12</h3>
-          <p style={{ fontStyle: 'italic', fontSize: '1.75em' }}>
+          <h3 style={{ fontStyle: 'italic', opacity: 0.7 }}>Malachi 3:7-12 KJV</h3>
+          <ScriptureText>
             <sup>7</sup>Even from the days of your fathers ye are gone away
             from mine ordinances, and have not kept them. Return unto me, and I
             will return unto you, saith the LORD of hosts. But ye said, Wherein
@@ -89,10 +110,11 @@ const Offering = () => {
             before the time in the field, saith the LORD of hosts. <sup>12</sup>
             And all nations shall call you blessed: for ye shall be a
             delightsome land, saith the LORD of hosts.
-          </p>
-        </ShadowBox>
-        <ShadowBox style={{ width: "50%", margin: 0 }}>
+          </ScriptureText>
+        </OfferingBox>
+        <OfferingBox>
           <Form>
+            <h2>Give Your Offering Here</h2>
             <SPFormGroup>
               <Form.Label>Offering Type</Form.Label>
               <Form.Select defaultValue={undefined} onChange={(e) => setOfferingType(e.target.value as OfferingType)}>
@@ -121,7 +143,7 @@ const Offering = () => {
           }}>
             <VenmoButton amount={amount} offeringType={offeringType} />
           </PayPalScriptProvider>
-        </ShadowBox>
+        </OfferingBox>
       </Container>
     </Container>
   )
