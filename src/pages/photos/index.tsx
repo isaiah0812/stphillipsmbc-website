@@ -1,14 +1,17 @@
-import { ImageList, ImageListItem } from '@mui/material';
+import { IconButton, ImageList, ImageListItem, ImageListItemBar, useMediaQuery } from '@mui/material';
 import { AxiosResponse } from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Container, Image } from 'react-bootstrap';
+import { Container, Popover, OverlayTrigger } from 'react-bootstrap';
 import { Divide, Header } from '../../components/styledComponents';
 import { api } from '../../config/api';
 import { IPhoto } from './model';
+import { InfoRounded } from '@mui/icons-material'
+import { mobileThreshold } from '../../utils/constants';
 
 const Photos = () => {
   const noChange = true
   const [photos, setPhotos] = useState<IPhoto[]>([] as IPhoto[])
+  const mobile = useMediaQuery(`(max-width:${mobileThreshold}px)`);
 
   useEffect(() => {
     api.get('/photos')
@@ -23,10 +26,25 @@ const Photos = () => {
     <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1em' }}>
       <Header style={{ transform: 'translate(0px, 10%)' }}>Photos</Header>
       <Divide width="5%"/>
-      <ImageList variant="masonry" cols={3} gap={8}>
+      <ImageList variant="masonry" cols={mobile ? 1 : 3} gap={8}>
         {photos.map((photo) => (
           <ImageListItem>
-            <img src={photo.url.toString()} loading="lazy" />
+            <img src={photo.url.toString()} alt={photo.name} loading="lazy" />
+            <ImageListItemBar 
+              title={photo.name} 
+              subtitle={photo.description}
+              actionIcon={
+                <OverlayTrigger trigger="click" overlay={
+                  <Popover>
+                    <Popover.Header style={{ color: 'black' }}>{photo.name}</Popover.Header>
+                    <Popover.Body>{photo.description}</Popover.Body>
+                  </Popover>
+                }>
+                  <IconButton sx={{ color: 'rgba(255, 255, 255, 0.5)' }}>
+                    <InfoRounded />
+                  </IconButton>
+                </OverlayTrigger>
+              } />
           </ImageListItem>
         ))}
       </ImageList>
