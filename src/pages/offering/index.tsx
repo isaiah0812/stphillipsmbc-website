@@ -3,13 +3,14 @@ import { Container, Form, Spinner } from 'react-bootstrap';
 import { PayPalButtons, PayPalScriptProvider, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import { Divide, Header, ShadowBox, SPFormGroup } from '../../components/styledComponents';
 import styled from 'styled-components';
+import { mobileThreshold } from '../../utils/constants';
 
 const OfferingBox = styled(ShadowBox)`
   width: calc(50% - 1em);
   padding: 1em;
   margin: 0px 0.5em;
 
-  @media(max-width: 1200px) {
+  @media(max-width: ${mobileThreshold}px) {
     width: 100%;
     margin: 0.5em 0px;
   }
@@ -19,7 +20,7 @@ const ScriptureText = styled.p`
   font-style: italic;
   font-size: 1.5em;
 
-  @media(max-width: 1200px) {
+  @media(max-width: ${mobileThreshold}px) {
     font-size: 1em;
   }
 `
