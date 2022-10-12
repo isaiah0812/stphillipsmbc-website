@@ -8,6 +8,7 @@ import { printDateTimeString } from '../../utils/printers';
 import { IEvent } from '../events/model';
 import staff from '../../data/staff.json';
 import { IStaff, JSONStaff, toIStaff } from '../staff/model';
+import { googleEncodeAddress } from '../../utils/common';
 
 const Home = () => {
   const noChange = true
@@ -72,7 +73,7 @@ const Home = () => {
               <iframe
                 style={{ border: 0, width: '45%', height: '100%'}}
                 referrerPolicy="no-referrer-when-downgrade"
-                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_MAPS_EMBED_KEY}&q=${recentEvent?.location.replace(', ', ',').replace(' ', '+')}`}
+                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_MAPS_EMBED_KEY}&q=${googleEncodeAddress(recentEvent?.location)}`}
                 allowFullScreen />
             </>
           )}

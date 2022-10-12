@@ -1,0 +1,1 @@
+export const googleEncodeAddress = (address: string) => address.replace(', ', ',').replace(' ', '+');
