@@ -9,11 +9,14 @@ import { IEvent } from '../events/model';
 import staff from '../../data/staff.json';
 import { IStaff, JSONStaff, toIStaff } from '../staff/model';
 import { googleEncodeAddress } from '../../utils/common';
+import { useMediaQuery } from '@mui/material';
+import { mobileThreshold } from '../../utils/constants';
 
 const Home = () => {
-  const noChange = true
   const [recentEvent, setRecentEvent] = useState<IEvent | undefined>(undefined)
+
   const pastor: IStaff | null = toIStaff(staff.find((member) => member.positions.includes("Pastor") || member.positions.includes("Senior Pastor")) as JSONStaff)
+  const mobile = useMediaQuery(`(max-width:${mobileThreshold}px)`)
 
   useEffect(() => {
     api.get('/events/recent')
@@ -30,24 +33,24 @@ const Home = () => {
       }).catch((error) => {
         console.error(error)
       })
-  }, [noChange])
+  }, [])
 
   return (
     <Container fluid className="home-background">
-      <Container fluid style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap-reverse', justifyContent: 'center', height: '100vh', maxHeight: 1080, alignItems: 'center', padding: 120 }}>
+      <Container fluid style={{ display: 'flex', flexDirection: 'row', flexWrap: mobile ? 'wrap-reverse' : 'nowrap', justifyContent: 'center', height: '100vh', maxHeight: 1080, alignItems: 'center' }}>
         <iframe
           src="https://www.youtube.com/embed/live_stream?channel=UChKql4EVoCgSpWNSwqhxOsA"
-          style={{ border: 0, width: '45%', height: 'calc(100vh * .50)' }}
+          style={{ border: 0, width: '100%', height: 'calc(100vh * .50)' }}
           allowFullScreen />
         <Container style={{
           display: 'flex',
-          width: '45%',
+          width: '100%',
           justifyContent: 'center',
           alignItems: 'center',
           flexDirection: 'column',
           textAlign: 'center'
         }}>
-          <h1 style={{ fontSize: '4em' }}>Welcome to St. Phillips Missionary Baptist Church</h1>
+          <h1>Welcome to St. Phillips Missionary Baptist Church</h1>
           <h3 style={{ fontStyle: 'italic' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
           <Divide width="10%" />
           <h2>Sunday Morning Worship - 11:00 AM</h2>

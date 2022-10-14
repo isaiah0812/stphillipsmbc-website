@@ -38,8 +38,8 @@ const Menu = () => {
 
   return (
     <React.Fragment>
-      <Navbar style={{ backgroundColor: 'transparent', width: '100%', zIndex: 1, padding: 0, top: 0 }} fixed="top">
-        <Container fluid style={{ display: 'flex', width: '100%', padding: '1%', alignItems: 'flex-start' }}>
+      <Navbar style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)', height: '7vh', width: '100%', zIndex: 1, padding: '0.3em' }} fixed="top">
+        <Container fluid style={{ display: 'flex', width: '100%', alignItems: 'center' }}>
           <Navbar.Brand href="/" style={{ padding: 0 }}>
             <h3>SPMBC</h3>
             <h5>The Church that looks to the hills.</h5>
