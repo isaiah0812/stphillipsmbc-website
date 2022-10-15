@@ -38,7 +38,7 @@ const Menu = () => {
 
   return (
     <React.Fragment>
-      <Navbar style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)', height: '7vh', width: '100%', zIndex: 1, padding: '0.3em' }} fixed="top">
+      <Navbar style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)', height: '8vh', width: '100%', zIndex: 1, padding: '0.3em' }} fixed="top">
         <Container fluid style={{ display: 'flex', width: '100%', alignItems: 'center' }}>
           <Navbar.Brand href="/" style={{ padding: 0 }}>
             <h3>SPMBC</h3>

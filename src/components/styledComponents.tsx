@@ -2,7 +2,7 @@ import { Container, Form } from 'react-bootstrap';
 import styled from 'styled-components';
 
 export const Header = styled.h1`
-  font-size: 3em;
+  font-size: 2em;
   text-align: center;
   line-height: normal;
 `
