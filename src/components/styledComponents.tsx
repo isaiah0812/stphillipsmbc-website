@@ -7,10 +7,10 @@ export const Header = styled.h1`
   line-height: normal;
 `
 
-export const Divide = styled.hr<{ width: string | number} >`
-  border: 0.3em solid #707070;
+export const Divide = styled.hr<{ width: string | number, opacity?: number } >`
+  border: 0.15em solid #707070;
   width: ${props => props.width};
-  opacity: 1;
+  opacity: ${props => props.opacity ? props.opacity : 1};
   border-radius: 100vw;
 `
 

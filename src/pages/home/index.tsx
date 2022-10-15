@@ -68,20 +68,31 @@ const Home = () => {
             justifyContent: 'center',
             alignItems: 'center',
             flexDirection: 'column',
-            textAlign: 'center'
+            textAlign: 'center',
+            alignSelf: 'flex-start'
           }}>
             <h1>Welcome to St. Phillips Missionary Baptist Church</h1>
             <Divide width="10%" />
-            <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', alignItems: 'center', justifyContent: 'space-between', margin: '1em 0px' }}>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                flexWrap: 'nowrap',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                margin: '1em 0px',
+                height: '50vh'
+              }}
+            >
               <p style={{ width: '50%', fontStyle: 'italic', padding: '0.5em', fontSize: '1.5em' }}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
-              <div style={{ borderLeft: '2px solid white', height: 450 }} />
+              <hr style={{ display: 'inline-block', width: 2, height: '100%', color: 'white', opacity: 1 }} />
               <p style={{ width: '50%', padding: '0.5em', fontSize: '1em', alignSelf: 'center' }}>
                 <b>Morning Worship</b> - Sundays at 11:00 AM
-                <Divide width="100%" />
+                <Divide width="100%" opacity={0.75} />
                 <b>Sunday School</b> - Sundays at 10:00 AM
-                <Divide width="100%" />
+                <Divide width="100%" opacity={0.75} />
                 <b>Bible Study</b> - Wednesdays at 7:00 PM
               </p>
             </div>
