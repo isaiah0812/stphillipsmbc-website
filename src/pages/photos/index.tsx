@@ -7,6 +7,7 @@ import { api } from '../../config/api';
 import { IPhoto } from './model';
 import { InfoRounded } from '@mui/icons-material'
 import { mobileThreshold } from '../../utils/constants';
+import { Helmet } from 'react-helmet';
 
 const Photos = () => {
   const noChange = true
@@ -24,6 +25,10 @@ const Photos = () => {
 
   return (
     <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1em' }}>
+      <Helmet>
+        <title>Photos</title>
+        <meta name="description" content="Photos from services and events at St. Phillips Missionary Baptist Church." />
+      </Helmet>
       <Header style={{ transform: 'translate(0px, 10%)' }}>Photos</Header>
       <Divide width="5%"/>
       <ImageList variant="masonry" cols={mobile ? 1 : 3} gap={8}>

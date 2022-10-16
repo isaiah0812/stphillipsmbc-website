@@ -9,6 +9,7 @@ import { IEvent, sortEventLists, TimedEventList, toTimedEventLists } from './mod
 import styled from 'styled-components';
 import { mobileThreshold } from '../../utils/constants';
 import { useMediaQuery } from '@mui/material';
+import { Helmet } from 'react-helmet';
 
 const RecentEventContainer = styled(Container)`
   display: flex;
@@ -118,6 +119,10 @@ const Events = (): JSX.Element => {
 
   return (
     <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1em' }}>
+      <Helmet>
+        <title>Events at St. Phillips</title>
+        <meta name="description" content="All upcoming events at St. Phillips Missionary Baptist Church." />
+      </Helmet>
       <Header style={{ transform: 'translate(0px, 10%)' }}>Upcoming Events</Header>
       <Divide width="5%"/>
       {

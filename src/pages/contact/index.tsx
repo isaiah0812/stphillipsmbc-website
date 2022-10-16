@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { SPButton } from '../../components/button';
 import { Divide, Header, ShadowBox, SPFormGroup } from '../../components/styledComponents';
 import { mobileThreshold } from '../../utils/constants';
+import { Helmet } from 'react-helmet';
 
 const ContactBox = styled(Container)`
   width: calc(50% - 2em);
@@ -20,6 +21,10 @@ const Contact = () => {
 
   return (
     <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1%' }}>
+      <Helmet>
+        <title>Contact St. Phillips</title>
+        <meta name="description" content="Contact information for St. Phillips Missionary Baptist Church." />
+      </Helmet>
       <Header style={{ transform: 'translate(0px, 10%)' }}>Contact St. Phillips </Header>
       <Divide width="5%"/>
       <Container fluid style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap-reverse' }}>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Container, Nav, Navbar, Offcanvas } from 'react-bootstrap';
+import { Container, Image, Nav, Navbar, Offcanvas } from 'react-bootstrap';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { IRoute, routes } from '../config/routes';
@@ -38,8 +38,17 @@ const Menu = () => {
 
   return (
     <React.Fragment>
-      <Navbar style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)', height: '8vh', width: '100%', zIndex: 1, padding: '0.3em' }} fixed="top">
-        <Container fluid style={{ display: 'flex', width: '100%', alignItems: 'center' }}>
+      <Navbar
+        fixed="top"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(80, 9, 9, 1), rgba(154, 144, 4, 0))',
+          height: '5em',
+          width: '100%',
+          zIndex: 2,
+          padding: '0.3em'
+        }}
+      >
+        <Container fluid style={{ display: 'flex', width: '100%', height: '5em', alignItems: 'center' }}>
           <Navbar.Brand href="/" style={{ padding: 0 }}>
             <h3>SPMBC</h3>
             <h5>The Church that looks to the hills.</h5>

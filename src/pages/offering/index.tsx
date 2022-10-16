@@ -4,6 +4,7 @@ import { PayPalButtons, PayPalScriptProvider, usePayPalScriptReducer } from '@pa
 import { Divide, Header, ShadowBox, SPFormGroup } from '../../components/styledComponents';
 import styled from 'styled-components';
 import { mobileThreshold } from '../../utils/constants';
+import { Helmet } from 'react-helmet';
 
 const OfferingBox = styled(ShadowBox)`
   width: calc(50% - 1em);
@@ -88,6 +89,10 @@ const Offering = () => {
 
   return (
     <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1em' }}>
+      <Helmet>
+        <title>Online Offering</title>
+        <meta name="description" content="An online platform to give offering to St. Phillips Missionary Baptist Church." />
+      </Helmet>
       <Header style={{ transform: 'translate(0px, 10%)' }}>Tithes & Offering</Header>
       <Divide width="5%"/>
       <Container fluid style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap-reverse', justifyContent: 'center' }}>
