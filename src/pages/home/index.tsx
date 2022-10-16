@@ -119,7 +119,7 @@ const Home = () => {
                 flexWrap: mobile ? 'wrap' : 'nowrap'
               }}>
               <Container style={{ width: '100%', padding: 0, margin: !mobile ? '0px 1em' : '0px 0px 0.5em' }}>
-                <h2 style={{ fontSize: '2.5em'}}><b>Next Event: {recentEvent?.name}</b></h2>
+                <h2 style={{ fontSize: '2.5em'}}>Next Event: {recentEvent?.name}</h2>
                 <h3 style={{ fontStyle: 'italic' }}>Time: {printDateTimeString(recentEvent?.startTime)}</h3>
                 <h3 style={{ fontStyle: 'italic' }}>Location: {recentEvent?.location}</h3>
                 <SPButton text="See All Upcoming Events" href="/events" style={{ margin: '1.25% 0px' }} />
@@ -152,3 +152,26 @@ const Home = () => {
 }
 
 export default Home;
+
+/**
+ * TODO
+ * - background image under gradient on live section (https://webdevetc.com/blog/how-to-add-a-gradient-overlay-to-a-background-image-using-just-css-and-html/)
+ * - add church bio
+ * - remove staff bios
+ * - create staff cards
+ * - implement emailjs to contact form
+ * - add footer with facebook, youtube, and tagline
+ * - background image under church bio
+ * - background image under offering page
+ * - background image under contact page
+ * - background image under events page
+ * - set up cloudinary account
+ * - set up google account
+ * - set up auth0 account
+ * - set up paypal account
+ * - set up render instances
+ * - fix event and photo blocking from auth0 on mobile
+ * - fix live jump button (link on SPButton scroll)
+ * - make width ems on Divides
+ * - fix home welcome section height on mobile
+ */
