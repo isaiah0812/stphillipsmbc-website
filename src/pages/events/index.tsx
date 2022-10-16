@@ -163,7 +163,9 @@ const Events = (): JSX.Element => {
         </Table>
       </ShadowBox>
       <Modal show={showEventModal} onHide={closeEventModal} centered size='xl' scrollable>
-          <Modal.Header closeButton />
+          <Modal.Header closeButton>
+            <Modal.Title style={{ color: 'black' }}>{selectedEvent.name}</Modal.Title>
+          </Modal.Header>
           <Modal.Body style={{ display: 'flex', flexDirection: 'row', flexWrap: !mobile ? 'nowrap' : 'wrap-reverse' }}>
             <iframe
               style={{ border: 0, width: '100%', minHeight: 464 }}
@@ -171,7 +173,7 @@ const Events = (): JSX.Element => {
               src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_MAPS_EMBED_KEY}&q=${googleEncodeAddress(selectedEvent.location)}`}
               allowFullScreen />
             <div style={{ margin: !mobile ? '1em 0px 1em 1em' : '1em 0px', padding: !mobile ? '1em' : '0px', width: '100%' }}>
-              <h1 style={{ fontSize: '3em', color: 'black' }}>{selectedEvent.name}</h1>
+              <h1 style={{ fontSize: '2em', color: 'black' }}>{selectedEvent.name}</h1>
               <h2 style={{ fontStyle: 'italic', color: 'black' }}>Start Time: {printDateTimeString(selectedEvent.startTime)}</h2>
               <h2 style={{ fontStyle: 'italic', color: 'black' }}>End Time: {printDateTimeString(selectedEvent.endTime)}</h2>
               <h2 style={{ fontStyle: 'italic', color: 'black' }}>Location: {selectedEvent.location}</h2>
