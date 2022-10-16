@@ -5,11 +5,11 @@ import { IStaff } from '../model';
 import styled from 'styled-components';
 import { mobileThreshold } from '../../../utils/constants';
 
-interface StaffDescriptionProps {
+interface PastorDescription {
   member: IStaff
 }
 
-const StaffBox = styled(Container)`
+const PastorBox = styled(Container)`
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -19,7 +19,7 @@ const StaffBox = styled(Container)`
     flex-wrap: wrap;
   }
 `
-const StaffDescriptionBox = styled(ShadowBox)`
+const PastorDescriptionBox = styled(ShadowBox)`
   width: 100%;
   max-width: 1200;
   padding: 1%;
@@ -33,20 +33,19 @@ const StaffDescriptionBox = styled(ShadowBox)`
   }
 `
 
-const StaffDescription = ({ member }: StaffDescriptionProps) => {
+const PastorDescription = ({ member }: PastorDescription) => {
   return (
     <Container fluid style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <StaffBox fluid>
+      <PastorBox fluid>
         <Image src={member.portrait.toString()} style={{ width: '100%', maxWidth: 345, maxHeight: 460, height: '50vh', objectFit: 'cover', position: 'sticky', top: 20 }} />
-        <StaffDescriptionBox fluid>
+        <PastorDescriptionBox fluid>
           <h2>{member.name}</h2>
-          <h3 style={{ fontStyle: 'italic' }}>{member.positions.join(", ")}</h3>
-          {member.description.split('\n').map((paragraph) => <p>{paragraph}</p>)}
-        </StaffDescriptionBox>
-      </StaffBox>
+          {member.description!.split('\n').map((paragraph) => <p>{paragraph}</p>)}
+        </PastorDescriptionBox>
+      </PastorBox>
       <Divide width="100%" style={{ maxWidth: 'calc(20% + 1200px + 1em)', borderRadius: 0 }} />
     </Container>
   )
 }
 
-export default StaffDescription;
+export default PastorDescription;

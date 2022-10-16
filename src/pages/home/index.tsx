@@ -141,7 +141,7 @@ const Home = () => {
             <h2 style={{ fontSize: '2.5em', textAlign: 'center' }}>About The Pastor</h2>
             <h3 style={{ textAlign: 'center' }}>{pastor.name}</h3>
             <p style={{ textOverflow: 'ellipsis', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 20, WebkitBoxOrient: 'vertical' }}>
-              {pastor.description.split('\n').map((paragraph) => <>{paragraph}<br /><br /></>)}
+              {pastor.description!.split('\n').map((paragraph) => <>{paragraph}<br /><br /></>)}
             </p>
             <SPButton text="Read More" href="/staff" width="100%" />
           </ShadowBox>
@@ -156,9 +156,6 @@ export default Home;
 /**
  * TODO
  * - background image under gradient on live section (https://webdevetc.com/blog/how-to-add-a-gradient-overlay-to-a-background-image-using-just-css-and-html/)
- * - add church bio
- * - remove staff bios
- * - create staff cards
  * - implement emailjs to contact form
  * - add footer with facebook, youtube, and tagline
  * - background image under church bio

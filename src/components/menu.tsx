@@ -51,7 +51,7 @@ const Menu = () => {
         <Container fluid style={{ display: 'flex', width: '100%', height: '5em', alignItems: 'center' }}>
           <Navbar.Brand href="/" style={{ padding: 0 }}>
             <h3>SPMBC</h3>
-            <h5>The Church that looks to the hills.</h5>
+            <h5 style={{ fontStyle: 'italic' }}>The Church That Looks to the Hills.</h5>
           </Navbar.Brand>
           <FontAwesomeIcon icon={faBars} onClick={open} style={{ height: '3em', cursor: 'pointer' }} />
         </Container>

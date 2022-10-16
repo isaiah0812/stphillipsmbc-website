@@ -1,22 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { Divide, Header } from '../../components/styledComponents';
-import StaffDescription from './components/staffDescription';
+import PastorDescription from './components/pastorDescription';
 import data from '../../data/staff.json'
 import { IStaff, toStaffArray } from './model';
 import { Helmet } from 'react-helmet';
+import StaffCard from './components/staffCard';
+import ChurchDescription from './components/churchDescription';
 
 const Staff = () => {
-  const staff: IStaff[] = toStaffArray(data)
+  const staff: IStaff[] = toStaffArray(data);
   return (
     <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1em' }}>
       <Helmet>
-        <title>The Staff</title>
-        <meta name="description" content="Biographies of the Pastor and Staff at St. Phillips Missionary Baptist Church." />
+        <title>About St. Phillips</title>
+        <meta name="description" content="The history of St. Phillips Missionary Baptist Church and Pastor Bobby Bullard, and the staff members representing the church." />
       </Helmet>
-      <Header style={{ transform: 'translate(0px, 10%)' }}>The Staff at St. Phillips</Header>
+      <Header style={{ transform: 'translate(0px, 10%)' }}>About St. Phillips Missionary Baptist Church</Header>
       <Divide width="5%"/>
-      {staff.map((member) => <StaffDescription member={member} />)}
+      <ChurchDescription />
+      <PastorDescription member={staff.find((member) => member.positions.includes("Pastor"))!} />
+      <Container fluid style={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap' }}>
+        {staff.filter((member) => !member.positions.includes("Pastor")).map((member) => <StaffCard member={member} />)}
+      </Container>
     </Container>
   )
 }

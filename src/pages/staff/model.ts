@@ -1,14 +1,14 @@
 export interface IStaff {
   name: string
   positions: string[]
-  description: string
+  description?: string
   portrait: URL
 }
 
 export interface JSONStaff {
   name: string
   positions: string[]
-  description: string
+  description?: string
   portrait: string
 }
 
