@@ -138,7 +138,7 @@ const Home = () => {
         {pastor && (
           <Container fluid style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', padding: '2%', height: !mobile ? '100vh' : undefined, maxHeight: !mobile ? 1080 : undefined, margin: mobile ? '5em 0px 0px' : undefined }}>
             {!mobile && <Image src={pastor.portrait.toString()} style={{ width: '25%', margin: 0 }} />}
-            <ShadowBox fluid style={{ width: !mobile ? '35%' : '100%', padding: '1.5%', margin: 0 }}>
+            <ShadowBox fluid style={{ width: !mobile ? '60%' : '100%', padding: '1.5%', margin: 0 }}>
               <h2 style={{ fontSize: '2.5em', textAlign: 'center' }}>About The Pastor</h2>
               <h3 style={{ textAlign: 'center' }}>{pastor.name}</h3>
               <p style={{ textOverflow: 'ellipsis', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 20, WebkitBoxOrient: 'vertical' }}>
