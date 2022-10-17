@@ -15,7 +15,7 @@ export const Divide = styled.hr<{ width: string | number, opacity?: number } >`
 `
 
 export const ShadowBox = styled(Container)`
-  background-color: rgba(71, 71, 71, 0.39);
+  background-color: rgba(71, 71, 71, 0.45);
 `
 
 export const SPFormGroup = styled(Form.Group)`

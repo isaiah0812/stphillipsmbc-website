@@ -23,9 +23,7 @@ const ChurchDescriptionBox = styled(ShadowBox)`
   text-align: left;
 
   @media(max-width: ${mobileThreshold}px) {
-    background-color: rgba(71, 71, 71, 0.75);
     margin: 1em 0px;
-    z-index: 1;
   }
 `
 
@@ -53,9 +51,7 @@ const ChurchDescription = () => {
             maxWidth: 345,
             maxHeight: 460,
             height: '50vh',
-            objectFit: 'cover',
-            position: 'sticky',
-            top: 20
+            objectFit: 'cover'
           }} 
         />
       </ChurchBox>

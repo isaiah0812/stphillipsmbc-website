@@ -108,7 +108,6 @@ const Home = () => {
               <ShadowBox 
                 fluid
                 style={{
-                  backgroundColor: 'rgba(71, 71, 71, 0.39)',
                   display: 'flex',
                   flexDirection: 'row',
                   justifyContent: 'space-between',
