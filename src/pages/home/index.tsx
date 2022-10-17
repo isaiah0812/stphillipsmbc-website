@@ -14,6 +14,7 @@ import { mobileThreshold } from '../../utils/constants';
 
 const Home = () => {
   const [recentEvent, setRecentEvent] = useState<IEvent | undefined>(undefined)
+  const [introHover, setIntroHover] = useState<boolean>(false);
 
   const pastor: IStaff | null = toIStaff(staff.find((member) => member.positions.includes("Pastor") || member.positions.includes("Senior Pastor")) as JSONStaff)
   const mobile = useMediaQuery(`(max-width:${mobileThreshold}px)`)
@@ -82,13 +83,13 @@ const Home = () => {
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   margin: '1em 0px',
-                  height: '50vh'
+                  height: '100%'
                 }}
               >
-                <p style={{ width: '50%', fontStyle: 'italic', padding: '0.5em', fontSize: '1.5em' }}>
+                <p style={{ width: '50%', fontStyle: 'italic', padding: '0.5em', fontSize: '2.25ch' }}>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
-                <hr style={{ display: 'inline-block', width: 2, height: '100%', color: 'white', opacity: 1 }} />
+                <hr style={{ width: 2, height: 100, color: 'white', opacity: 1 }} />
                 <p style={{ width: '50%', padding: '0.5em', fontSize: '1em', alignSelf: 'center' }}>
                   <b>Morning Worship</b> - Sundays at 11:00 AM
                   <Divide width="100%" opacity={0.75} />
