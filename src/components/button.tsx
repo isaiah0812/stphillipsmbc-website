@@ -8,6 +8,7 @@ type ButtonProps = {
   width?: string | number;
   href?: string | URL;
   style?: React.CSSProperties;
+  anchor?: boolean
 }
 
 type ButtonTempProps = {
@@ -54,12 +55,16 @@ export const SPButton = (props: ButtonProps) => {
   // If href is included, it makes the button a link. Either way it is passed
   // to ButtonTemp, which is the styled Button seen on screen.
   return props.href ? (
-    <Link to={props.href} style={{...props.style}}>
-      <ButtonTemp props={{...props, onClick: () => {
-        props.onClick && props.onClick()
-        window.scrollTo({ top: 0 })
-      }}} />
-    </Link>
+    props.anchor ? (
+      <a href={props.href.toString()} style={{...props.style}}>
+        <ButtonTemp props={{...props}} />
+      </a>
+    ) : (
+      <Link to={props.href} style={{...props.style}}>
+        <ButtonTemp props={{...props}}
+        />
+      </Link>
+    )
   ) : (
     <ButtonTemp props={props} />
   )

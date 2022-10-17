@@ -59,7 +59,7 @@ const Home = () => {
               <h2><b>Morning Worship</b> - Sundays at 11:00 AM</h2>
               <h2><b>Sunday School</b> - Sundays at 10:00 AM</h2>
               <h2><b>Bible Study</b> - Wednesdays at 7:00 PM</h2>
-              <SPButton text="Watch Service Live" href="#live-service" style={{ margin: '1% 0px', width: '100%' }} />
+              <SPButton text="Watch Service Live" href="#live-service" style={{ margin: '1% 0px', width: '100%' }} anchor />
             </Container>
           )}
           {mobile && (
@@ -97,7 +97,7 @@ const Home = () => {
                   <b>Bible Study</b> - Wednesdays at 7:00 PM
                 </p>
               </div>
-              <SPButton text="Watch Service Live" href="#live-service" style={{ margin: '1% 0px', width: '100%' }} />
+              <SPButton text="Watch Service Live" href="#live-service" style={{ margin: '1% 0px', width: '100%' }} anchor />
             </Container>
           )}
         </Container>
@@ -124,7 +124,7 @@ const Home = () => {
                   <h3 style={{ fontStyle: 'italic' }}>Location: {recentEvent?.location}</h3>
                   <SPButton text="See All Upcoming Events" href="/events" style={{ margin: '1.25% 0px' }} />
                   <SPButton text="Visit St. Phillips MBC" href="/contact" style={{ margin: '1.25% 0px' }} />
-                  <SPButton text="Watch Service Live!" href="#live-service" style={{ margin: '1.25% 0px' }} />
+                  <SPButton text="Watch Service Live!" href="#live-service" style={{ margin: '1.25% 0px' }} anchor />
                 </Container>
                 <iframe
                   style={{ border: 0, width: '100%', height: !mobile ? '100%' : 300, maxHeight: mobile ? 464 : undefined, margin: !mobile ? '0px 1em' : '0.5em 0px 0px' }}
@@ -143,7 +143,7 @@ const Home = () => {
               <p style={{ textOverflow: 'ellipsis', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 20, WebkitBoxOrient: 'vertical' }}>
                 {pastor.description!.split('\n').map((paragraph) => <>{paragraph}<br /><br /></>)}
               </p>
-              <SPButton text="Read More" href="/staff" width="100%" />
+              <SPButton text="Read More" href="/staff" width="100%" onClick={() => window.scroll({ top: 0, behavior: 'smooth' })} />
             </ShadowBox>
           </Container>
         )}

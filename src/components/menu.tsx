@@ -1,32 +1,43 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Container, Image, Nav, Navbar, Offcanvas } from 'react-bootstrap';
+import { Container, Navbar, Offcanvas } from 'react-bootstrap';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { IRoute, routes } from '../config/routes';
 
-const MenuItem = ({ path, title }: IRoute) => {
+interface MenuItemProps {
+  route: IRoute,
+  onClick: () => any
+}
+
+const MenuItem = ({ route, onClick }: MenuItemProps) => {
+  const { path, title } = route;
   const [borderColor, setBorderColor] = useState('transparent')
 
   const hover = () => setBorderColor('black');
   const leave = () => setBorderColor('transparent');
 
   return (
-    <Nav.Link
-      href={path}
+    <Link
+      to={path}
       onMouseEnter={hover} 
-      onMouseLeave={leave} 
+      onMouseLeave={leave}
+      onClick={() => {
+        onClick();
+        window.scroll({ top: 0, behavior: 'smooth' })
+      }}
       style={{
         textDecoration: 'none',
         color: 'black',
         fontSize: '2em',
         width: '100%',
         border: `1px solid ${borderColor}`,
-        transition: 'border 0.3s'
+        transition: 'border 0.3s',
+        padding: '.25em .5em'
       }}
     >
       {title}
-    </Nav.Link>
+    </Link>
   )
 }
 
@@ -61,8 +72,8 @@ const Menu = () => {
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Menu</Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body style={{ width: '100%', padding: 0 }}>
-          {routes.map((route: IRoute) => <MenuItem path={route.path} title={route.title} />)}
+        <Offcanvas.Body style={{ width: '100%', padding: 0, display: 'flex', flexDirection: 'column' }}>
+          {routes.map((route: IRoute) => <MenuItem route={route} onClick={close} />)}
         </Offcanvas.Body>
       </Offcanvas>
     </React.Fragment>
