@@ -55,7 +55,7 @@ const ChurchDescription = () => {
           }} 
         />
       </ChurchBox>
-      <Divide width="100%" style={{ maxWidth: 'calc(20% + 1200px + 1em)', borderRadius: 0 }} />
+      <Divide width="80%" style={{ maxWidth: 'calc(20% + 1200px + 1em)', borderRadius: 0 }} />
     </Container>
   );
 };

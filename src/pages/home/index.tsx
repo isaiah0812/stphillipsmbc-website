@@ -74,7 +74,7 @@ const Home = () => {
               alignSelf: 'flex-start'
             }}>
               <h1>Welcome to St. Phillips Missionary Baptist Church</h1>
-              <Divide width="10%" />
+              <Divide width="3em" />
               <div
                 style={{
                   display: 'flex',
@@ -90,12 +90,18 @@ const Home = () => {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
                 <hr style={{ width: 2, height: 100, color: 'white', opacity: 1 }} />
-                <p style={{ width: '50%', padding: '0.5em', fontSize: '1em', alignSelf: 'center' }}>
-                  <b>Morning Worship</b> - Sundays at 11:00 AM
-                  <Divide width="100%" opacity={0.75} />
-                  <b>Sunday School</b> - Sundays at 10:00 AM
-                  <Divide width="100%" opacity={0.75} />
-                  <b>Bible Study</b> - Wednesdays at 7:00 PM
+                <p style={{ width: '50%', padding: '0.4em', fontSize: '1em', alignSelf: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', lineHeight: '1.25em' }}>
+                  <b>Morning Worship</b>
+                  <br />
+                  Sundays at 11:00 AM
+                  <Divide width="80%" opacity={0.75} />
+                  <b>Sunday School</b>
+                  <br />
+                  Sundays at 10:00 AM
+                  <Divide width="80%" opacity={0.75} />
+                  <b>Bible Study</b>
+                  <br />
+                  Wednesdays at 7:00 PM
                 </p>
               </div>
               <SPButton text="Watch Service Live" href="#live-service" style={{ margin: '1% 0px', width: '100%' }} anchor />
@@ -104,7 +110,7 @@ const Home = () => {
         </Container>
         <Container fluid style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: !mobile ? '100vh' : undefined, maxHeight: !mobile ? 1080 : undefined, margin: mobile ? '5em 0px' : undefined }}>
           <Header>Join Us For Our Next Service!</Header>
-          <Divide width="5%" />
+          <Divide width="3em" />
             {recentEvent && (
               <ShadowBox 
                 fluid
@@ -168,8 +174,6 @@ export default Home;
  * - set up auth0 account
  * - set up paypal account
  * - set up render instances
+ * - set up emailjs
  * - fix event and photo blocking from auth0 on mobile
- * - fix live jump button (link on SPButton scroll)
- * - make width ems on Divides
- * - fix home welcome section height on mobile
  */

@@ -30,7 +30,7 @@ const Photos = () => {
         <meta name="description" content="Photos from services and events at St. Phillips Missionary Baptist Church." />
       </Helmet>
       <Header style={{ transform: 'translate(0px, 10%)' }}>Photos</Header>
-      <Divide width="5%"/>
+      <Divide width="3em"/>
       <ImageList variant="masonry" cols={mobile ? 1 : 3} gap={8}>
         {photos.map((photo) => (
           <ImageListItem>

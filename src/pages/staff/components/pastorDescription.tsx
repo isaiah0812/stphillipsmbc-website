@@ -27,9 +27,7 @@ const PastorDescriptionBox = styled(ShadowBox)`
   text-align: left;
 
   @media(max-width: ${mobileThreshold}px) {
-    background-color: rgba(71, 71, 71, 0.75);
     margin: 1em 0px;
-    z-index: 1;
   }
 `
 
@@ -37,13 +35,13 @@ const PastorDescription = ({ member }: PastorDescription) => {
   return (
     <Container fluid style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <PastorBox fluid>
-        <Image src={member.portrait.toString()} style={{ width: '100%', maxWidth: 345, maxHeight: 460, height: '50vh', objectFit: 'cover', position: 'sticky', top: 20 }} />
+        <Image src={member.portrait.toString()} style={{ width: '100%', maxWidth: 345, maxHeight: 460, height: '50vh', objectFit: 'cover' }} />
         <PastorDescriptionBox fluid>
           <h2>{member.name}</h2>
           {member.description!.split('\n').map((paragraph) => <p>{paragraph}</p>)}
         </PastorDescriptionBox>
       </PastorBox>
-      <Divide width="100%" style={{ maxWidth: 'calc(20% + 1200px + 1em)', borderRadius: 0 }} />
+      <Divide width="80%" style={{ maxWidth: 'calc(20% + 1200px + 1em)', borderRadius: 0 }} />
     </Container>
   )
 }

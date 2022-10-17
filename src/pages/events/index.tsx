@@ -124,7 +124,7 @@ const Events = (): JSX.Element => {
         <meta name="description" content="All upcoming events at St. Phillips Missionary Baptist Church." />
       </Helmet>
       <Header style={{ transform: 'translate(0px, 10%)' }}>Upcoming Events</Header>
-      <Divide width="5%"/>
+      <Divide width="5em"/>
       {
         mostRecent && (
           <RecentEventContainer fluid>

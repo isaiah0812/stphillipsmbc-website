@@ -94,7 +94,7 @@ const Offering = () => {
         <meta name="description" content="An online platform to give offering to St. Phillips Missionary Baptist Church." />
       </Helmet>
       <Header style={{ transform: 'translate(0px, 10%)' }}>Tithes & Offering</Header>
-      <Divide width="5%"/>
+      <Divide width="5em"/>
       <Container fluid style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap-reverse', justifyContent: 'center' }}>
         <OfferingBox>
           <h2>Our Reasoning For Tithes and Offering</h2>
