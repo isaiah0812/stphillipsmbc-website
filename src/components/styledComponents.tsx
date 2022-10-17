@@ -12,6 +12,7 @@ export const Divide = styled.hr<{ width: string | number, opacity?: number } >`
   width: ${props => props.width};
   opacity: ${props => props.opacity ? props.opacity : 1};
   border-radius: 100vw;
+  color: #707070;
 `
 
 export const ShadowBox = styled(Container)`
