@@ -173,7 +173,6 @@ export default Home;
  * TODO
  * - implement emailjs to contact form
  * - background image under offering page
- * - background image under contact page
  * - set up cloudinary account
  * - set up google account
  * - set up auth0 account
