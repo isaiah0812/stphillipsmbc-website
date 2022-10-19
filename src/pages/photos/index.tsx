@@ -26,7 +26,7 @@ const Photos = () => {
   return (
     <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1em' }}>
       <Helmet>
-        <title>Photos</title>
+        <title>Photos of St. Phillips</title>
         <meta name="description" content="Photos from services and events at St. Phillips Missionary Baptist Church." />
       </Helmet>
       <Header style={{ transform: 'translate(0px, 10%)' }}>Photos</Header>

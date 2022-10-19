@@ -90,8 +90,8 @@ const Offering = () => {
   return (
     <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1em' }}>
       <Helmet>
-        <title>Online Offering</title>
-        <meta name="description" content="An online platform to give offering to St. Phillips Missionary Baptist Church." />
+        <title>Online Tithes & Offering</title>
+        <meta name="description" content="An online platform to give tithes & offering to St. Phillips Missionary Baptist Church." />
       </Helmet>
       <Header style={{ transform: 'translate(0px, 10%)' }}>Tithes & Offering</Header>
       <Divide width="5em"/>

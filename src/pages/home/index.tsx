@@ -11,6 +11,7 @@ import { IStaff, JSONStaff, toIStaff } from '../staff/model';
 import { googleEncodeAddress } from '../../utils/common';
 import { useMediaQuery } from '@mui/material';
 import { mobileThreshold } from '../../utils/constants';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
   const [recentEvent, setRecentEvent] = useState<IEvent | undefined>(undefined)
@@ -38,6 +39,13 @@ const Home = () => {
 
   return (
     <Container fluid className="home-background" style={{ padding: 0, margin: 0 }}>
+      <Helmet>
+        <title>St. Phillips Missionary Baptist Church - Austin, TX</title>
+        <meta
+          name="description"
+          content="The official website for St. Phillips Missionary Baptist Church, located in Austin, Texas."
+        />
+      </Helmet>
       <Container fluid className="home-inside-background" style={{ padding: '5em 1em', width: '100%', margin: 0 }}>
         <Container fluid style={{ display: 'flex', flexDirection: 'row', flexWrap: mobile ? 'wrap-reverse' : 'nowrap', justifyContent: 'center', height: !mobile ? '100vh' : undefined, maxHeight: !mobile ? 1080 : undefined, alignItems: 'center', margin: mobile ? '0px 0px 5em' : undefined }}>
           <iframe
