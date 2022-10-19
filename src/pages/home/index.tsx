@@ -172,7 +172,6 @@ export default Home;
 /**
  * TODO
  * - implement emailjs to contact form
- * - add footer with facebook, youtube, and tagline
  * - background image under church bio
  * - background image under offering page
  * - background image under contact page

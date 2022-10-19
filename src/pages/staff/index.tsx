@@ -11,17 +11,30 @@ import ChurchDescription from './components/churchDescription';
 const Staff = () => {
   const staff: IStaff[] = toStaffArray(data);
   return (
-    <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1em' }}>
+    <Container
+      fluid
+      style={{
+        padding: 0,
+        margin: 0,
+        backgroundImage: 'url(https://res.cloudinary.com/zaemadethis/image/upload/v1659889411/spmbc/gallery/pexels-pixabay-218480_e0ivoi.jpg)',
+        backgroundAttachment: 'fixed',
+        backgroundPositionX: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       <Helmet>
         <title>About St. Phillips</title>
         <meta name="description" content="The history of St. Phillips Missionary Baptist Church and Pastor Bobby Bullard, and the staff members representing the church." />
       </Helmet>
-      <Header style={{ transform: 'translate(0px, 10%)' }}>About St. Phillips Missionary Baptist Church</Header>
-      <Divide width="5%"/>
-      <ChurchDescription />
-      <PastorDescription member={staff.find((member) => member.positions.includes("Pastor"))!} />
-      <Container fluid style={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap' }}>
-        {staff.filter((member) => !member.positions.includes("Pastor")).map((member) => <StaffCard member={member} />)}
+      <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1em' }}>
+        <Header style={{ transform: 'translate(0px, 10%)' }}>About St. Phillips Missionary Baptist Church</Header>
+        <Divide width="5%"/>
+        <ChurchDescription />
+        <PastorDescription member={staff.find((member) => member.positions.includes("Pastor"))!} />
+        <Container fluid style={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap' }}>
+          {staff.filter((member) => !member.positions.includes("Pastor")).map((member) => <StaffCard member={member} />)}
+        </Container>
       </Container>
     </Container>
   )

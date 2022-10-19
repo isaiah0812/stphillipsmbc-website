@@ -29,7 +29,9 @@ html {
 }
 
 .page-background {
-  background: linear-gradient(#9A9004 0%, #FFFFFF 100vh);
+  background: linear-gradient(rgba(154, 144, 4, 0.25) 0%, rgba(255, 255, 255, 1) 100vh);
+  backdrop-filter: grayscale(100%);
+  -webkit-backdrop-filter: grayscale(100%);
 }
 
 .square::after {
