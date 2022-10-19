@@ -179,4 +179,7 @@ export default Home;
  * - set up render instances
  * - set up emailjs
  * - fix event and photo blocking from auth0 on mobile
+ * - try different format of footer (stacking)
+ * - fix spacing on home intro
+ * - remove unused imports
  */
