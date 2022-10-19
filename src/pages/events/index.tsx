@@ -118,74 +118,87 @@ const Events = (): JSX.Element => {
   }, []);
 
   return (
-    <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1em' }}>
+    <Container
+      fluid
+      style={{
+        padding: 0,
+        margin: 0,
+        backgroundImage: 'url(https://res.cloudinary.com/zaemadethis/image/upload/v1659889408/spmbc/gallery/pexels-pixabay-65922_kmttac.jpg)',
+        backgroundAttachment: 'fixed',
+        backgroundPositionX: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       <Helmet>
         <title>Events at St. Phillips</title>
         <meta name="description" content="All upcoming events at St. Phillips Missionary Baptist Church." />
       </Helmet>
-      <Header style={{ transform: 'translate(0px, 10%)' }}>Upcoming Events</Header>
-      <Divide width="5em"/>
-      {
-        mostRecent && (
-          <RecentEventContainer fluid>
-            <RecentEventIFrame
-              referrerPolicy="no-referrer-when-downgrade"
-              src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_MAPS_EMBED_KEY}&q=${googleEncodeAddress(mostRecent.location)}`}
-              allowFullScreen />
-            <RecentEventDescription fluid>
-              <h1 style={{ fontSize: '3em' }}>Next Event: {mostRecent.name}</h1>
-              <h2 style={{ fontStyle: 'italic' }}>Start Time: {printDateTimeString(mostRecent.startTime)}</h2>
-              <h2 style={{ fontStyle: 'italic' }}>End Time: {printDateTimeString(mostRecent.endTime)}</h2>
-              <h2 style={{ fontStyle: 'italic' }}>Location: {mostRecent.location}</h2>
-              <p style={{ fontStyle: 'italic' }}>{mostRecent.description}</p>
-            </RecentEventDescription>
-          </RecentEventContainer>
-        )
-      }
-      <ShadowBox fluid style={{ padding: '1em 2em', margin: '0px 1em' }}>
-        <h3 style={{ textAlign: 'left' }}>More Events</h3>
-        <hr style={{ border: '2px solid white', opacity: 1 }}/>
-        <Table responsive>
-          <thead>
-            <tr>
-              <th style={{ textAlign: 'left', width: '33%' }}>Event Name</th>
-              <th style={{ textAlign: !mobile ? 'center' : 'right', width: '33%' }}>Event Time</th>
-              {!mobile && <th style={{ textAlign: 'right', width: '33%' }}>Event Description</th>}
-            </tr>
-          </thead>
-          <tbody>
-            {
-              events.filter((eventList) => eventList.events.length > 0).map((eventList) => (
-                <>
-                  <tr>
-                    <td colSpan={!mobile ? 3 : 2} style={{ color: '#DBDBDB' }}>{printDateString(eventList.date)}</td>
-                  </tr>
-                  {eventList.events.map((event) => <EventListItem event={event} onClick={() => openEventModal(event)} />)}
-                </>
-              ))
-            }
-          </tbody>
-        </Table>
-      </ShadowBox>
-      <Modal show={showEventModal} onHide={closeEventModal} centered size='xl' scrollable>
-          <Modal.Header closeButton>
-            <Modal.Title style={{ color: 'black' }}>{selectedEvent.name}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body style={{ display: 'flex', flexDirection: 'row', flexWrap: !mobile ? 'nowrap' : 'wrap-reverse' }}>
-            <iframe
-              style={{ border: 0, width: '100%', minHeight: 464 }}
-              referrerPolicy="no-referrer-when-downgrade"
-              src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_MAPS_EMBED_KEY}&q=${googleEncodeAddress(selectedEvent.location)}`}
-              allowFullScreen />
-            <div style={{ margin: !mobile ? '1em 0px 1em 1em' : '1em 0px', padding: !mobile ? '1em' : '0px', width: '100%' }}>
-              <h1 style={{ fontSize: '2.5em', color: 'black' }}>{selectedEvent.name}</h1>
-              <h2 style={{ fontStyle: 'italic', color: 'black' }}>Start Time: {printDateTimeString(selectedEvent.startTime)}</h2>
-              <h2 style={{ fontStyle: 'italic', color: 'black' }}>End Time: {printDateTimeString(selectedEvent.endTime)}</h2>
-              <h2 style={{ fontStyle: 'italic', color: 'black' }}>Location: {selectedEvent.location}</h2>
-              <p style={{ fontStyle: 'italic', color: 'black' }}>{selectedEvent.description}</p>
-            </div>
-          </Modal.Body>
-      </Modal>
+      <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1em' }}>
+        <Header style={{ transform: 'translate(0px, 10%)' }}>Upcoming Events</Header>
+        <Divide width="5em"/>
+        {
+          mostRecent && (
+            <RecentEventContainer fluid>
+              <RecentEventIFrame
+                referrerPolicy="no-referrer-when-downgrade"
+                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_MAPS_EMBED_KEY}&q=${googleEncodeAddress(mostRecent.location)}`}
+                allowFullScreen />
+              <RecentEventDescription fluid>
+                <h1 style={{ fontSize: '3em' }}>Next Event: {mostRecent.name}</h1>
+                <h2 style={{ fontStyle: 'italic' }}>Start Time: {printDateTimeString(mostRecent.startTime)}</h2>
+                <h2 style={{ fontStyle: 'italic' }}>End Time: {printDateTimeString(mostRecent.endTime)}</h2>
+                <h2 style={{ fontStyle: 'italic' }}>Location: {mostRecent.location}</h2>
+                <p style={{ fontStyle: 'italic' }}>{mostRecent.description}</p>
+              </RecentEventDescription>
+            </RecentEventContainer>
+          )
+        }
+        <ShadowBox fluid style={{ padding: '1em 2em', margin: '0px 1em' }}>
+          <h3 style={{ textAlign: 'left' }}>More Events</h3>
+          <hr style={{ border: '2px solid white', opacity: 1 }}/>
+          <Table responsive>
+            <thead>
+              <tr>
+                <th style={{ textAlign: 'left', width: '33%' }}>Event Name</th>
+                <th style={{ textAlign: !mobile ? 'center' : 'right', width: '33%' }}>Event Time</th>
+                {!mobile && <th style={{ textAlign: 'right', width: '33%' }}>Event Description</th>}
+              </tr>
+            </thead>
+            <tbody>
+              {
+                events.filter((eventList) => eventList.events.length > 0).map((eventList) => (
+                  <>
+                    <tr>
+                      <td colSpan={!mobile ? 3 : 2} style={{ color: '#DBDBDB' }}>{printDateString(eventList.date)}</td>
+                    </tr>
+                    {eventList.events.map((event) => <EventListItem event={event} onClick={() => openEventModal(event)} />)}
+                  </>
+                ))
+              }
+            </tbody>
+          </Table>
+        </ShadowBox>
+        <Modal show={showEventModal} onHide={closeEventModal} centered size='xl' scrollable>
+            <Modal.Header closeButton>
+              <Modal.Title style={{ color: 'black' }}>{selectedEvent.name}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body style={{ display: 'flex', flexDirection: 'row', flexWrap: !mobile ? 'nowrap' : 'wrap-reverse' }}>
+              <iframe
+                style={{ border: 0, width: '100%', minHeight: 464 }}
+                referrerPolicy="no-referrer-when-downgrade"
+                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_MAPS_EMBED_KEY}&q=${googleEncodeAddress(selectedEvent.location)}`}
+                allowFullScreen />
+              <div style={{ margin: !mobile ? '1em 0px 1em 1em' : '1em 0px', padding: !mobile ? '1em' : '0px', width: '100%' }}>
+                <h1 style={{ fontSize: '2.5em', color: 'black' }}>{selectedEvent.name}</h1>
+                <h2 style={{ fontStyle: 'italic', color: 'black' }}>Start Time: {printDateTimeString(selectedEvent.startTime)}</h2>
+                <h2 style={{ fontStyle: 'italic', color: 'black' }}>End Time: {printDateTimeString(selectedEvent.endTime)}</h2>
+                <h2 style={{ fontStyle: 'italic', color: 'black' }}>Location: {selectedEvent.location}</h2>
+                <p style={{ fontStyle: 'italic', color: 'black' }}>{selectedEvent.description}</p>
+              </div>
+            </Modal.Body>
+        </Modal>
+      </Container>
     </Container>
   )
 }

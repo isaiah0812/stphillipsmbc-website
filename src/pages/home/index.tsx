@@ -46,7 +46,7 @@ const Home = () => {
           content="The official website for St. Phillips Missionary Baptist Church, located in Austin, Texas."
         />
       </Helmet>
-      <Container fluid className="home-inside-background" style={{ padding: '5em 1em', width: '100%', margin: 0 }}>
+      <Container fluid className="home-inside-background" style={{ padding: '5em 1em', margin: 0 }}>
         <Container fluid style={{ display: 'flex', flexDirection: 'row', flexWrap: mobile ? 'wrap-reverse' : 'nowrap', justifyContent: 'center', height: !mobile ? '100vh' : undefined, maxHeight: !mobile ? 1080 : undefined, alignItems: 'center', margin: mobile ? '0px 0px 5em' : undefined }}>
           <iframe
             id="live-service"
@@ -172,10 +172,8 @@ export default Home;
 /**
  * TODO
  * - implement emailjs to contact form
- * - background image under church bio
  * - background image under offering page
  * - background image under contact page
- * - background image under events page
  * - set up cloudinary account
  * - set up google account
  * - set up auth0 account
