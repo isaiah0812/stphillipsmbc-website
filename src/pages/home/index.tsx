@@ -158,7 +158,7 @@ const Home = () => {
               <p style={{ textOverflow: 'ellipsis', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 20, WebkitBoxOrient: 'vertical' }}>
                 {pastor.description!.split('\n').map((paragraph) => <>{paragraph}<br /><br /></>)}
               </p>
-              <SPButton text="Read More" href="/staff" width="100%" onClick={() => window.scroll({ top: 0, behavior: 'smooth' })} />
+              <SPButton text="Read More" href="/about" width="100%" onClick={() => window.scroll({ top: 0, behavior: 'smooth' })} />
             </ShadowBox>
           </Container>
         )}

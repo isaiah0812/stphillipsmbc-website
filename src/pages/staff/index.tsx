@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet';
 import StaffCard from './components/staffCard';
 import ChurchDescription from './components/churchDescription';
 
-const Staff = () => {
+const About = () => {
   const staff: IStaff[] = toStaffArray(data);
   return (
     <Container
@@ -40,4 +40,4 @@ const Staff = () => {
   )
 }
 
-export default Staff;
+export default About;

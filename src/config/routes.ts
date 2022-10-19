@@ -3,7 +3,7 @@ import Events from "../pages/events"
 import Home from "../pages/home"
 import Offering from "../pages/offering"
 import Photos from "../pages/photos"
-import Staff from "../pages/staff"
+import About from "../pages/staff"
 
 export interface IRoute {
   path: string,
@@ -18,9 +18,9 @@ export const routes: IRoute[] = [
     component: Home
   },
   {
-    path: "/staff",
-    title: "Staff",
-    component: Staff
+    path: "/about",
+    title: "About",
+    component: About
   },
   {
     path: "/events",
