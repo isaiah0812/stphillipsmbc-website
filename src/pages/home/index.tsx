@@ -98,17 +98,17 @@ const Home = () => {
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
                 <hr style={{ width: 2, height: 100, color: 'white', opacity: 1 }} />
-                <p style={{ width: '50%', padding: '0.4em', fontSize: '1em', alignSelf: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', lineHeight: '1.25em' }}>
+                <p style={{ width: '50%', padding: '0.4em', fontSize: '1em', alignSelf: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', lineHeight: 'normal' }}>
                   <b>Morning Worship</b>
-                  <br />
+                  <hr style={{ width: 0, margin: 0 }} />
                   Sundays at 11:00 AM
                   <Divide width="80%" opacity={0.75} />
                   <b>Sunday School</b>
-                  <br />
+                  <hr style={{ width: 0, margin: 0 }} />
                   Sundays at 10:00 AM
                   <Divide width="80%" opacity={0.75} />
                   <b>Bible Study</b>
-                  <br />
+                  <hr style={{ width: 0, margin: 0 }} />
                   Wednesdays at 7:00 PM
                 </p>
               </div>
@@ -180,6 +180,5 @@ export default Home;
  * - set up emailjs
  * - fix event and photo blocking from auth0 on mobile
  * - try different format of footer (stacking)
- * - fix spacing on home intro
  * - remove unused imports
  */
