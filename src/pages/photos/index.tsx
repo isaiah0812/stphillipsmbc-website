@@ -1,6 +1,6 @@
 import { IconButton, ImageList, ImageListItem, ImageListItemBar, useMediaQuery } from '@mui/material';
 import { AxiosResponse } from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, Popover, OverlayTrigger } from 'react-bootstrap';
 import { Divide, Header } from '../../components/styledComponents';
 import { api } from '../../config/api';

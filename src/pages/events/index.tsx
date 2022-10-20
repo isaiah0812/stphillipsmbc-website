@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, Modal, Table } from 'react-bootstrap';
 import { Header, Divide, ShadowBox } from '../../components/styledComponents';
 import { api } from '../../config/api';

@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { Divide, Header } from '../../components/styledComponents';
 import PastorDescription from './components/pastorDescription';

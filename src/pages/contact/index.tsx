@@ -1,4 +1,3 @@
-import React from 'react';
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import { SPButton } from '../../components/button';

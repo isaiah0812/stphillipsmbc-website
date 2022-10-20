@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, Form, Spinner } from 'react-bootstrap';
 import { PayPalButtons, PayPalScriptProvider, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import { Divide, Header, ShadowBox, SPFormGroup } from '../../components/styledComponents';

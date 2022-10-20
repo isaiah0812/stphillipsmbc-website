@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Container, Image } from 'react-bootstrap';
 import { SPButton } from '../../components/button';
 import { Divide, Header, ShadowBox } from '../../components/styledComponents';
@@ -15,7 +15,6 @@ import { Helmet } from 'react-helmet';
 
 const Home = () => {
   const [recentEvent, setRecentEvent] = useState<IEvent | undefined>(undefined)
-  const [introHover, setIntroHover] = useState<boolean>(false);
 
   const pastor: IStaff | null = toIStaff(staff.find((member) => member.positions.includes("Pastor") || member.positions.includes("Senior Pastor")) as JSONStaff)
   const mobile = useMediaQuery(`(max-width:${mobileThreshold}px)`)
@@ -180,4 +179,5 @@ export default Home;
  * - set up emailjs
  * - fix event and photo blocking from auth0 on mobile
  * - remove unused imports
+ * - make a 404 page
  */
