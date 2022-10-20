@@ -27,7 +27,7 @@ const About = () => {
         <title>About St. Phillips</title>
         <meta name="description" content="The history of St. Phillips Missionary Baptist Church and Pastor Bobby Bullard, and the staff members representing the church." />
       </Helmet>
-      <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1em' }}>
+      <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1em 10em' }}>
         <Header style={{ transform: 'translate(0px, 10%)' }}>About St. Phillips Missionary Baptist Church</Header>
         <Divide width="5%"/>
         <ChurchDescription />

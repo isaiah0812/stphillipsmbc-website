@@ -36,7 +36,7 @@ const Contact = () => {
         <title>Contact St. Phillips</title>
         <meta name="description" content="Contact information for St. Phillips Missionary Baptist Church." />
       </Helmet>
-      <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1%' }}>
+      <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1% 10em' }}>
         <Header style={{ transform: 'translate(0px, 10%)' }}>Contact St. Phillips </Header>
         <Divide width="5em"/>
         <Container fluid style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap-reverse' }}>

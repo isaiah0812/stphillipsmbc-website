@@ -104,7 +104,7 @@ const Offering = () => {
         <title>Online Tithes & Offering</title>
         <meta name="description" content="An online platform to give tithes & offering to St. Phillips Missionary Baptist Church." />
       </Helmet>
-      <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1em' }}>
+      <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1em 10em' }}>
         <Header style={{ transform: 'translate(0px, 10%)' }}>Tithes & Offering</Header>
         <Divide width="5em"/>
         <Container fluid style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap-reverse', justifyContent: 'center' }}>

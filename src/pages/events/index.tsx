@@ -134,7 +134,7 @@ const Events = (): JSX.Element => {
         <title>Events at St. Phillips</title>
         <meta name="description" content="All upcoming events at St. Phillips Missionary Baptist Church." />
       </Helmet>
-      <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1em' }}>
+      <Container fluid className="page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1em 10em' }}>
         <Header style={{ transform: 'translate(0px, 10%)' }}>Upcoming Events</Header>
         <Divide width="5em"/>
         {

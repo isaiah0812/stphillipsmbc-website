@@ -24,7 +24,7 @@ const Photos = () => {
   }, [noChange])
 
   return (
-    <Container fluid className="photos-page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1em' }}>
+    <Container fluid className="photos-page-background" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '5em 1em 10em' }}>
       <Helmet>
         <title>Photos of St. Phillips</title>
         <meta name="description" content="Photos from services and events at St. Phillips Missionary Baptist Church." />

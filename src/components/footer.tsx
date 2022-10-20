@@ -44,14 +44,14 @@ const Footer = () => {
     <footer
       style={{
         width: '100%',
-        background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(80, 9, 9, 1))',
-        height: '5em',
+        background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(80, 9, 9, .25) 50%, rgba(80, 9, 9, 1) 100%)',
+        height: '10em',
         zIndex: 2,
         display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'flex-end',
+        flexDirection: 'column',
+        alignItems: 'center',
         position: 'absolute',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-end',
         bottom: 0,
         left: 0,
         padding: '0.25%'

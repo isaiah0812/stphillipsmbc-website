@@ -8,7 +8,7 @@ import Footer from './components/footer';
 
 function App() {
   return (
-    <Container style={{ minHeight: 'calc(100vh + 10em)', padding: 0, position: 'relative' }} fluid>
+    <Container style={{ minHeight: 'calc(100vh + 5em)', padding: 0, position: 'relative' }} fluid>
       <Menu />
       <Routes>
         {routes.map((route: IRoute) => <Route path={route.path} element={route.component && <route.component />} />)}
