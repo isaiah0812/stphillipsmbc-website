@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import Menu from './components/menu';
 import { IRoute, routes } from './config/routes';
 import Footer from './components/footer';
+import NotFound from './pages/notFound';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Menu />
       <Routes>
         {routes.map((route: IRoute) => <Route path={route.path} element={route.component && <route.component />} />)}
+        <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />
     </Container>
