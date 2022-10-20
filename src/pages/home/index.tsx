@@ -178,6 +178,4 @@ export default Home;
  * - set up render instances
  * - set up emailjs
  * - fix event and photo blocking from auth0 on mobile
- * - remove unused imports
- * - make a 404 page
  */
