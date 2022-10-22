@@ -32,7 +32,7 @@ const Home = () => {
           setRecentEvent(event)
         }
       }).catch((error) => {
-        console.error(error)
+        console.error(JSON.stringify(error, null, 2))
       })
   }, [])
 
@@ -177,5 +177,4 @@ export default Home;
  * - set up paypal account
  * - set up render instances
  * - set up emailjs
- * - fix event and photo blocking from auth0 on mobile
  */
