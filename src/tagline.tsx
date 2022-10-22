@@ -1,26 +1,36 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 export const Tagline = () => {
-  const [ underline, setUnderline ] = useState<boolean>(false);
+  const [ highlight, setHighlight ] = useState<boolean>(false);
+  const tagText = useRef<HTMLSpanElement>(null)
 
-  const hover = () => setUnderline(true);
-  const leave = () => setUnderline(false);
+  const hover = () => setHighlight(true);
+  const leave = () => setHighlight(false);
 
   return (
     <a 
       href="https://www.zaemakeswebsites.com"
       onMouseEnter={hover}
       onMouseLeave={leave}
+      onClick={leave}
       style={{
-        borderBottom: underline ? '1px solid white' : 0,
         textDecoration: 'none',
-        color: 'white',
-        padding: 1,
+        padding: '0.2em 0.5em',
+        borderRadius: '50em',
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',
         alignItems: 'flex-end',
-        lineHeight: 'normal'
+        lineHeight: 'normal',
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        backgroundImage: 'linear-gradient(to left, transparent, transparent 50%, white 50%, white)',
+        backgroundPosition: highlight ? '0 0' : '100% 0',
+        backgroundSize: '200% 100%',
+        WebkitBackgroundSize: '200% 100%',
+        transition: 'all 0.5s, color 0.5s ease-in-out 0.5s',
+        WebkitTransition: 'all 0.5s, color 0.5s ease-in-out 0.5s',
+        MozTransition: 'all 0.5s, color 0.5s ease-in-out 0.5s'
       }}
     >
       <img 
@@ -32,7 +42,20 @@ export const Tagline = () => {
           margin: '0px 5px 0px 0px'
         }}
       />
-      Yes, Zae made this website.
+      <span
+        ref={tagText}
+        style={{
+          fontFamily: 'Incosolata, monospace',
+          color: highlight ? 'black': 'transparent',
+          opacity: highlight ? 1 : 0,
+          maxWidth: highlight ? tagText.current!.scrollWidth : 0,
+          transition: 'all 0.5s, color 0.5s ease-in-out 0.5s',
+          WebkitTransition: 'all 0.5s, color 0.5s ease-in-out 0.5s',
+          MozTransition: 'all 0.5s, color 0.5s ease-in-out 0.5s'
+        }}
+      >
+        Yes, Zae made this website.
+      </span>
     </a>
   );
 }

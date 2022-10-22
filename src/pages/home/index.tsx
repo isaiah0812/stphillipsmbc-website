@@ -178,5 +178,4 @@ export default Home;
  * - set up render instances
  * - set up emailjs
  * - fix event and photo blocking from auth0 on mobile
- * - Change font on tagline
  */
