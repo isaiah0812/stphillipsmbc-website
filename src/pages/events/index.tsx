@@ -183,12 +183,7 @@ const Events = (): JSX.Element => {
             <Modal.Header closeButton>
               <Modal.Title style={{ color: 'black' }}>{selectedEvent.name}</Modal.Title>
             </Modal.Header>
-            <Modal.Body style={{ display: 'flex', flexDirection: 'row', flexWrap: !mobile ? 'nowrap' : 'wrap-reverse' }}>
-              <iframe
-                style={{ border: 0, width: '100%', minHeight: 464 }}
-                referrerPolicy="no-referrer-when-downgrade"
-                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_MAPS_EMBED_KEY}&q=${googleEncodeAddress(selectedEvent.location)}`}
-                allowFullScreen />
+            <Modal.Body style={{ display: 'flex', flexDirection: 'row-reverse', flexWrap: !mobile ? 'nowrap' : 'wrap' }}>
               <div style={{ margin: !mobile ? '1em 0px 1em 1em' : '1em 0px', padding: !mobile ? '1em' : '0px', width: '100%' }}>
                 <h1 style={{ fontSize: '2.5em', color: 'black' }}>{selectedEvent.name}</h1>
                 <h2 style={{ fontStyle: 'italic', color: 'black' }}>Start Time: {printDateTimeString(selectedEvent.startTime)}</h2>
@@ -196,6 +191,11 @@ const Events = (): JSX.Element => {
                 <h2 style={{ fontStyle: 'italic', color: 'black' }}>Location: {selectedEvent.location}</h2>
                 <p style={{ fontStyle: 'italic', color: 'black' }}>{selectedEvent.description}</p>
               </div>
+              <iframe
+                style={{ border: 0, width: '100%', minHeight: 464 }}
+                referrerPolicy="no-referrer-when-downgrade"
+                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_MAPS_EMBED_KEY}&q=${googleEncodeAddress(selectedEvent.location)}`}
+                allowFullScreen />
             </Modal.Body>
         </Modal>
       </Container>
