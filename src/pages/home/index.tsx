@@ -62,7 +62,8 @@ const Home = () => {
               textAlign: 'center'
             }}>
               <h1>Welcome to St. Phillips Missionary Baptist Church</h1>
-              <h3 style={{ fontStyle: 'italic' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
+              <h3 style={{ fontStyle: 'italic' }}>Our mission is to, "Find them, bring them in, grow them up and send them out."</h3>
+              <h3 style={{ fontStyle: 'italic', color: '#B0B0B0' }}>Austin, Texas - Pastor Bobby Bullard</h3>
               <Divide width="10%" />
               <h2><b>Morning Worship</b> - Sundays at 11:00 AM</h2>
               <h2><b>Sunday School</b> - Sundays at 10:00 AM</h2>
@@ -81,6 +82,7 @@ const Home = () => {
               alignSelf: 'flex-start'
             }}>
               <h1>Welcome to St. Phillips Missionary Baptist Church</h1>
+              <h4 style={{ fontStyle: 'italic', color: '#B0B0B0' }}>Austin, Texas - Pastor Bobby Bullard</h4>
               <Divide width="3em" />
               <div
                 style={{
@@ -94,7 +96,7 @@ const Home = () => {
                 }}
               >
                 <p style={{ width: '50%', fontStyle: 'italic', padding: '0.5em', fontSize: '2.25ch' }}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Our mission is to, "Find them, bring them in, grow them up and send them out."
                 </p>
                 <hr style={{ width: 2, height: 100, color: 'white', opacity: 1 }} />
                 <p style={{ width: '50%', padding: '0.4em', fontSize: '1em', alignSelf: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', lineHeight: 'normal' }}>
