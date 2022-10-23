@@ -1,4 +1,4 @@
-import { Col, Container, Form, Row } from 'react-bootstrap';
+import { Alert, Col, Container, Form, Row } from 'react-bootstrap';
 import styled from 'styled-components';
 import { SPButton } from '../../components/button';
 import { Divide, Header, ShadowBox, SPFormGroup } from '../../components/styledComponents';
@@ -19,11 +19,14 @@ const ContactBox = styled(Container)`
   }
 `
 
+type FormStatus = 'pending' | 'accepted' | 'failed'
+
 const Contact = () => {
   const [ name, setName ] = useState<string>('');
   const [ email, setEmail ] = useState<string>('');
   const [ message, setMessage ] = useState<string>('');
-  const [ reCaptchaResponse, setReCaptchaResponse ] = useState<string | null>(null)
+  const [ reCaptchaResponse, setReCaptchaResponse ] = useState<string | null>(null);
+  const [ formStatus, setFormStatus ] = useState<FormStatus>('pending');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,10 +42,10 @@ const Contact = () => {
       }, 
       process.env.REACT_APP_EMAIL_USER!)
       .then((result) => {
-        console.log(result.text)
+        setFormStatus('accepted');
       })
       .catch((error) => {
-        console.log(error)
+        setFormStatus('failed');
       })
   }
 
@@ -94,21 +97,23 @@ const Contact = () => {
               <Form onSubmit={handleSubmit}>
                 <SPFormGroup>
                   <Form.Label>Name</Form.Label>
-                  <Form.Control name="name" value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Your Name" />
+                  <Form.Control required name="name" value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Your Name" />
                 </SPFormGroup>
                 <SPFormGroup>
                   <Form.Label>Email Address</Form.Label>
-                  <Form.Control name="email" value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="name@example.com" />
+                  <Form.Control required name="email" value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="name@example.com" />
                 </SPFormGroup>
                 <SPFormGroup>
                   <Form.Label>Message</Form.Label>
-                  <Form.Control name="message" value={message} onChange={(e) => setMessage(e.target.value)} as="textarea" placeholder="Message" rows={7} />
+                  <Form.Control required name="message" value={message} onChange={(e) => setMessage(e.target.value)} as="textarea" placeholder="Message" rows={7} />
                 </SPFormGroup>
                 <SPFormGroup>
                   <ReCAPTCHA sitekey={process.env.REACT_APP_RECAPTCHA_KEY!} onChange={setReCaptchaResponse} />
                   <Form.Text style={{ color: 'white' }}>You must verify before submitting the form.</Form.Text>
                 </SPFormGroup>
                 <SPButton text="Submit" submit />
+                {formStatus === 'accepted' && <Alert dismissible style={{ margin: '1em 0px 0px'}} onClose={() => setFormStatus('pending')} variant='success'>Thank you for sending us a message! We will get back with you as soon as possible!</Alert>}
+                {formStatus === 'failed' && <Alert dismissible style={{ margin: '1em 0px 0px'}} onClose={() => setFormStatus('pending')} variant='danger'>Failed to send message. Please try again.</Alert>}
               </Form>
             </ShadowBox>
           </ContactBox>
