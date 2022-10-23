@@ -6,6 +6,7 @@ import { mobileThreshold } from '../../utils/constants';
 import { Helmet } from 'react-helmet';
 import { useState } from 'react';
 import emailjs from  'emailjs-com';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const ContactBox = styled(Container)`
   width: calc(50% - 2em);
@@ -22,11 +23,21 @@ const Contact = () => {
   const [ name, setName ] = useState<string>('');
   const [ email, setEmail ] = useState<string>('');
   const [ message, setMessage ] = useState<string>('');
+  const [ reCaptchaResponse, setReCaptchaResponse ] = useState<string | null>(null)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    emailjs.send(process.env.REACT_APP_EMAIL_SERVICE!, process.env.REACT_APP_EMAIL_TEMPLATE!, { name, email, message }, process.env.REACT_APP_EMAIL_USER!)
+    emailjs.send(
+      process.env.REACT_APP_EMAIL_SERVICE!, 
+      process.env.REACT_APP_EMAIL_TEMPLATE!, 
+      { 
+        name, 
+        email, 
+        message,
+        'g-recaptcha-response': reCaptchaResponse
+      }, 
+      process.env.REACT_APP_EMAIL_USER!)
       .then((result) => {
         console.log(result.text)
       })
@@ -92,6 +103,10 @@ const Contact = () => {
                 <SPFormGroup>
                   <Form.Label>Message</Form.Label>
                   <Form.Control name="message" value={message} onChange={(e) => setMessage(e.target.value)} as="textarea" placeholder="Message" rows={7} />
+                </SPFormGroup>
+                <SPFormGroup>
+                  <ReCAPTCHA sitekey={process.env.REACT_APP_RECAPTCHA_KEY!} onChange={setReCaptchaResponse} />
+                  <Form.Text style={{ color: 'white' }}>You must verify before submitting the form.</Form.Text>
                 </SPFormGroup>
                 <SPButton text="Submit" submit />
               </Form>
