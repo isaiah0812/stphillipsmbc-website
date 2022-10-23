@@ -172,7 +172,6 @@ export default Home;
 
 /**
  * TODO
- * - implement emailjs to contact form
  * - set up cloudinary account
  * - set up google account
  * - set up auth0 account

@@ -4,6 +4,8 @@ import { SPButton } from '../../components/button';
 import { Divide, Header, ShadowBox, SPFormGroup } from '../../components/styledComponents';
 import { mobileThreshold } from '../../utils/constants';
 import { Helmet } from 'react-helmet';
+import { useState } from 'react';
+import emailjs from  'emailjs-com';
 
 const ContactBox = styled(Container)`
   width: calc(50% - 2em);
@@ -17,6 +19,21 @@ const ContactBox = styled(Container)`
 `
 
 const Contact = () => {
+  const [ name, setName ] = useState<string>('');
+  const [ email, setEmail ] = useState<string>('');
+  const [ message, setMessage ] = useState<string>('');
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    emailjs.send(process.env.REACT_APP_EMAIL_SERVICE!, process.env.REACT_APP_EMAIL_TEMPLATE!, { name, email, message }, process.env.REACT_APP_EMAIL_USER!)
+      .then((result) => {
+        console.log(result.text)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
 
   return (
     <Container
@@ -63,20 +80,20 @@ const Contact = () => {
                   Email: <a href="mailto:pastorbb69@yahoo.com" style={{ color: 'white' }}>pastorbb69@yahoo.com</a>
                 </Col>
               </Row>
-              <Form>
+              <Form onSubmit={handleSubmit}>
                 <SPFormGroup>
                   <Form.Label>Name</Form.Label>
-                  <Form.Control type="text" placeholder="Your Name" />
+                  <Form.Control name="name" value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Your Name" />
                 </SPFormGroup>
                 <SPFormGroup>
                   <Form.Label>Email Address</Form.Label>
-                  <Form.Control type="email" placeholder="name@example.com" />
+                  <Form.Control name="email" value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="name@example.com" />
                 </SPFormGroup>
                 <SPFormGroup>
                   <Form.Label>Message</Form.Label>
-                  <Form.Control as="textarea" placeholder="Message" rows={7} />
+                  <Form.Control name="message" value={message} onChange={(e) => setMessage(e.target.value)} as="textarea" placeholder="Message" rows={7} />
                 </SPFormGroup>
-                <SPButton text="Submit" onClick={() => alert("Submitting Message!")} />
+                <SPButton text="Submit" submit />
               </Form>
             </ShadowBox>
           </ContactBox>

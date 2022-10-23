@@ -8,7 +8,8 @@ type ButtonProps = {
   width?: string | number;
   href?: string | URL;
   style?: React.CSSProperties;
-  anchor?: boolean
+  anchor?: boolean,
+  submit?: boolean
 }
 
 type ButtonTempProps = {
@@ -35,6 +36,7 @@ const ButtonTemp = (buttonProps: ButtonTempProps) => {
       onClick={props.onClick}
       onMouseEnter={hover}
       onMouseLeave={leave}
+      type={props.submit ? 'submit' : 'button'}
       style={{ 
         borderWidth: 5,
         borderStyle: 'solid',
