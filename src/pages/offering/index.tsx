@@ -29,7 +29,6 @@ const ScriptureText = styled.p`
 enum OfferingType {
   GENERAL = "General Offering",
   TITHES = "Tithes",
-  LOVE = "Love Offering"
 }
 
 interface VenmoButtonProps {
@@ -139,7 +138,6 @@ const Offering = () => {
                   <option value={undefined}>Select an offering type...</option>
                   <option value={OfferingType.GENERAL}>{OfferingType.GENERAL}</option>
                   <option value={OfferingType.TITHES}>{OfferingType.TITHES}</option>
-                  <option value={OfferingType.LOVE}>{OfferingType.LOVE}</option>
                 </Form.Select>
               </SPFormGroup>
               <SPFormGroup>

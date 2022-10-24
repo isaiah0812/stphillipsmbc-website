@@ -170,12 +170,24 @@ const Home = () => {
 
 export default Home;
 
-/**
- * TODO
- * - set up cloudinary account
- * - set up google account
- * - set up auth0 account
- * - set up paypal account
- * - set up render instances
- * - set up emailjs
- */
+// TODO set up cloudinary account
+// TODO set up google account
+// TODO set up auth0 account
+// TODO set up paypal account
+// TODO set up render instances
+// TODO set up emailjs
+// TODO commont timezone (Central)
+// TODO calendar view of events
+// TODO paginate events
+// TODO /live
+// TODO add church background images
+// TODO add staff images
+// TODO add church image
+// TODO add pastor bio
+// TODO add cashapp link for love offering
+// TODO add fullscreen view for pictures
+// TODO search bar for pictures
+// TODO search bar for events
+// TODO hovering caption for photos
+// TODO optional caption for photos
+// TODO paginate photos
