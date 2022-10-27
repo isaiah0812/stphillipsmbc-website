@@ -176,7 +176,6 @@ export default Home;
 // TODO set up paypal account
 // TODO set up render instances
 // TODO set up emailjs
-// TODO commont timezone (Central)
 // TODO calendar view of events
 // TODO paginate events
 // TODO /live
