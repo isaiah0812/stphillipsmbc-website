@@ -15,11 +15,12 @@ const About = () => {
       style={{
         padding: 0,
         margin: 0,
-        backgroundImage: 'url(https://res.cloudinary.com/zaemadethis/image/upload/v1659889411/spmbc/gallery/pexels-pixabay-218480_e0ivoi.jpg)',
+        backgroundImage: 'url(https://res.cloudinary.com/di3snrvvx/image/upload/v1666924661/spmbc/assets/congregation_y7qfwo.jpg)',
         backgroundAttachment: 'fixed',
         backgroundPositionX: 'center',
         backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
+        backgroundPositionY: '100%'
       }}
     >
       <Helmet>

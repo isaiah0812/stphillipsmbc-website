@@ -55,11 +55,12 @@ const Contact = () => {
       style={{
         padding: 0,
         margin: 0,
-        backgroundImage: 'url(https://res.cloudinary.com/zaemadethis/image/upload/v1659889407/spmbc/gallery/pexels-em-hopper-287332_hyrczl.jpg)',
+        backgroundImage: 'url(https://res.cloudinary.com/di3snrvvx/image/upload/v1666925558/spmbc/assets/pnw_xtz201.jpg)',
         backgroundAttachment: 'fixed',
         backgroundPositionX: 'center',
         backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
+        backgroundPositionY: '100%'
       }}
     >
       <Helmet>

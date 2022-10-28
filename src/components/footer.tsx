@@ -14,6 +14,10 @@ const links: FooterLinkType[] = [
   {
     name: 'YouTube',
     url: new URL('https://www.youtube.com/channel/UChKql4EVoCgSpWNSwqhxOsA')
+  },
+  {
+    name: 'Instagram',
+    url: new URL('https://www.instagram.com/st.phillipsmbc')
   }
 ]
 

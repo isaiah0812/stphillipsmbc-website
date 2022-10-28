@@ -123,11 +123,12 @@ const Events = (): JSX.Element => {
       style={{
         padding: 0,
         margin: 0,
-        backgroundImage: 'url(https://res.cloudinary.com/zaemadethis/image/upload/v1659889408/spmbc/gallery/pexels-pixabay-65922_kmttac.jpg)',
+        backgroundImage: 'url(https://res.cloudinary.com/di3snrvvx/image/upload/v1666923183/spmbc/assets/banquet_dobdui.jpg)',
         backgroundAttachment: 'fixed',
         backgroundPositionX: 'center',
         backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
+        backgroundPositionY: '80%'
       }}
     >
       <Helmet>

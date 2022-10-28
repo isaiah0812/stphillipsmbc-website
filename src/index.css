@@ -15,11 +15,12 @@ html {
 
 .home-background {
   background-image:
-    url(https://res.cloudinary.com/zaemadethis/image/upload/v1659889416/spmbc/gallery/pexels-josh-sorenson-976866_nzkyrg.jpg);
+    url(https://res.cloudinary.com/di3snrvvx/image/upload/v1666921756/spmbc/assets/IMG_7100_nd4j47.jpg);
   background-attachment: fixed;
   background-position-x: center;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position-y: 80%;
 }
 
 .home-inside-background {

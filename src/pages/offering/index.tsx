@@ -92,11 +92,12 @@ const Offering = () => {
       style={{
         padding: 0,
         margin: 0,
-        backgroundImage: 'url(https://res.cloudinary.com/zaemadethis/image/upload/v1659889407/spmbc/gallery/pexels-brett-sayles-3633711_hnwvm6.jpg)',
+        backgroundImage: 'url(https://res.cloudinary.com/di3snrvvx/image/upload/v1666924988/spmbc/assets/deacons_yvt8n0.jpg)',
         backgroundAttachment: 'fixed',
         backgroundPositionX: 'center',
         backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
+        backgroundPositionY: '100%'
       }}
     >
       <Helmet>
