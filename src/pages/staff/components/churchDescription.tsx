@@ -45,7 +45,7 @@ const ChurchDescription = () => {
           {description && description.split('\n').map((paragraph) => <p>{paragraph}</p>)}
         </ChurchDescriptionBox>
         <Image
-          src={"https://res.cloudinary.com/zaemadethis/image/upload/v1659889406/spmbc/gallery/pexels-rudolf-kirchner-831056_fkjnh0.jpg"}
+          src={"/logo.jpg"}
           style={{
             width: '100%',
             maxWidth: 345,
