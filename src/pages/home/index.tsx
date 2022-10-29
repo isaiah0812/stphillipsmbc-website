@@ -184,6 +184,4 @@ export default Home;
 // TODO add fullscreen view for pictures
 // TODO search bar for pictures
 // TODO search bar for events
-// TODO hovering caption for photos
-// TODO optional caption for photos
 // TODO paginate photos
