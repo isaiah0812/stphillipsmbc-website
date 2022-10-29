@@ -180,7 +180,6 @@ export default Home;
 // TODO paginate events
 // TODO /live
 // TODO add pastor bio
-// TODO add cashapp link for love offering
 // TODO add fullscreen view for pictures
 // TODO search bar for pictures
 // TODO search bar for events

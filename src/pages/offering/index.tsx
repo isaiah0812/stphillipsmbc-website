@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Container, Form, Spinner } from 'react-bootstrap';
+import { Button, Container, Form, Spinner } from 'react-bootstrap';
 import { PayPalButtons, PayPalScriptProvider, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import { Divide, Header, ShadowBox, SPFormGroup } from '../../components/styledComponents';
 import styled from 'styled-components';
 import { mobileThreshold } from '../../utils/constants';
 import { Helmet } from 'react-helmet';
+import { ReactComponent as CashAppLogo } from '../../assets/cashAppLogo.svg';
 
 const OfferingBox = styled(ShadowBox)`
   width: calc(50% - 1em);
@@ -29,6 +30,7 @@ const ScriptureText = styled.p`
 enum OfferingType {
   GENERAL = "General Offering",
   TITHES = "Tithes",
+  LOVE_OFFERING = "Love Offering",
 }
 
 interface VenmoButtonProps {
@@ -80,6 +82,36 @@ const VenmoButton = ({ amount, offeringType }: VenmoButtonProps): JSX.Element =>
       <h4>Error Loading Venmo Button. Try refreshing the page.</h4>
     </PayPalButtons>
   </>
+}
+
+interface CashAppButtonProps {
+  amount: string
+}
+
+const CashAppButton = ({ amount }: CashAppButtonProps): JSX.Element => {
+  const [ bgColor, setBgColor ] = useState<string>('#00D632');
+
+  const hover = () => setBgColor('#00cf32');
+  const leave = () => setBgColor('#00D632');
+  return (
+    <a href={`https://cash.app/$pastorbb69/${amount}`} target="_blank" rel="noreferrer">
+      <Button
+        onMouseEnter={hover}
+        onMouseLeave={leave}
+        style={{
+          backgroundColor: bgColor,
+          borderColor: bgColor,
+          width: '100%',
+          height: 55,
+          maxWidth: 750,
+          overflow: 'hidden',
+          padding: 0,
+          transition: 'all 0.3s'
+        }}>
+        <CashAppLogo style={{ height: '100%', width: '100%' }} />
+      </Button>
+    </a>
+  )
 }
 
 const Offering = () => {
@@ -139,6 +171,7 @@ const Offering = () => {
                   <option value={undefined}>Select an offering type...</option>
                   <option value={OfferingType.GENERAL}>{OfferingType.GENERAL}</option>
                   <option value={OfferingType.TITHES}>{OfferingType.TITHES}</option>
+                  <option value={OfferingType.LOVE_OFFERING}>{OfferingType.LOVE_OFFERING}</option>
                 </Form.Select>
               </SPFormGroup>
               <SPFormGroup>
@@ -153,13 +186,18 @@ const Offering = () => {
                 />
               </SPFormGroup>
             </Form>
-            <PayPalScriptProvider options={{
-              "client-id": process.env.REACT_APP_PAYPAL_ID as string,
-              components: "buttons,funding-eligibility",
-              "enable-funding": "venmo"
-            }}>
-              <VenmoButton amount={amount} offeringType={offeringType} />
-            </PayPalScriptProvider>
+            {offeringType === OfferingType.LOVE_OFFERING && (
+              <CashAppButton amount={amount} />
+            )}
+            {offeringType !== OfferingType.LOVE_OFFERING && (
+              <PayPalScriptProvider options={{
+                "client-id": process.env.REACT_APP_PAYPAL_ID as string,
+                components: "buttons,funding-eligibility",
+                "enable-funding": "venmo"
+              }}>
+                <VenmoButton amount={amount} offeringType={offeringType} />
+              </PayPalScriptProvider>
+            )}
           </OfferingBox>
         </Container>
       </Container>
