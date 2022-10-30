@@ -24,6 +24,7 @@ const PastorDescriptionBox = styled(ShadowBox)`
   padding: 1%;
   margin: 0px 0px 0px 1em;
   text-align: left;
+  align-self: stretch;
 
   @media(max-width: ${mobileThreshold}px) {
     margin: 1em 0px;
