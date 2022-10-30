@@ -35,12 +35,12 @@ enum OfferingType {
 
 interface VenmoButtonProps {
   amount: string
-  offeringType?: OfferingType
+  offeringType?: OfferingType,
+  matcher: boolean
 }
 
-const VenmoButton = ({ amount, offeringType }: VenmoButtonProps): JSX.Element => {
+const VenmoButton = ({ amount, offeringType, matcher }: VenmoButtonProps): JSX.Element => {
   const [{ options, isPending }, dispatch] = usePayPalScriptReducer()
-  const noChange: boolean = true
 
   useEffect(() => {
     dispatch({
@@ -50,7 +50,7 @@ const VenmoButton = ({ amount, offeringType }: VenmoButtonProps): JSX.Element =>
         currency: "USD"
       }
     })
-  }, [noChange])
+  }, [])
 
   return <>
     { (isPending) && <Spinner animation="border" role="status" /> }
@@ -58,7 +58,7 @@ const VenmoButton = ({ amount, offeringType }: VenmoButtonProps): JSX.Element =>
       fundingSource='venmo' 
       style={{ color: 'blue' }}
       forceReRender={[amount, offeringType]}
-      disabled={offeringType === undefined || parseFloat(amount) === 0 || !amount}
+      disabled={offeringType === undefined || !matcher || !amount}
       createOrder={(data, actions) => {
         return actions.order.create({
           purchase_units: [
@@ -85,38 +85,53 @@ const VenmoButton = ({ amount, offeringType }: VenmoButtonProps): JSX.Element =>
 }
 
 interface CashAppButtonProps {
-  amount: string
+  amount: string,
+  matcher: boolean
 }
 
-const CashAppButton = ({ amount }: CashAppButtonProps): JSX.Element => {
+const CashAppButton = ({ amount, matcher }: CashAppButtonProps): JSX.Element => {
   const [ bgColor, setBgColor ] = useState<string>('#00D632');
 
   const hover = () => setBgColor('#00cf32');
   const leave = () => setBgColor('#00D632');
+
+  const onClick = () => {
+    if (matcher) {
+      window.open(`https://cash.app/$pastorbb69/${amount}`, '_blank')
+    }
+  }
+
   return (
-    <a href={`https://cash.app/$pastorbb69/${amount}`} target="_blank" rel="noreferrer">
-      <Button
-        onMouseEnter={hover}
-        onMouseLeave={leave}
-        style={{
-          backgroundColor: bgColor,
-          borderColor: bgColor,
-          width: '100%',
-          height: 55,
-          maxWidth: 750,
-          overflow: 'hidden',
-          padding: 0,
-          transition: 'all 0.3s'
-        }}>
-        <CashAppLogo style={{ height: '100%', width: '100%' }} />
-      </Button>
-    </a>
+    <Button
+      onMouseEnter={hover}
+      onMouseLeave={leave}
+      type="submit"
+      onClick={onClick}
+      disabled={!matcher}
+      style={{
+        backgroundColor: bgColor,
+        borderColor: bgColor,
+        width: '100%',
+        height: 45,
+        maxWidth: 750,
+        overflow: 'hidden',
+        padding: 0,
+        transition: 'all 0.3s',
+        marginBottom: 10,
+        opacity: matcher ? 1 : 0.6
+      }}>
+      <CashAppLogo style={{ height: '100%', width: '100%' }} />
+    </Button>
   )
 }
 
 const Offering = () => {
-  const [amount, setAmount] = useState<string>("0.00")
-  const [offeringType, setOfferingType] = useState<OfferingType | undefined>(undefined)
+  const [amount, setAmount] = useState<string>("0.00");
+  const [offeringType, setOfferingType] = useState<OfferingType | undefined>(undefined);
+  
+  const moneyRegex = /^(?!0+\.00)([0-9]+\.{1}[0-9]{2})$/gi;
+
+  const moneyMatch = amount.match(moneyRegex) === null;
 
   return (
     <Container
@@ -183,11 +198,12 @@ const Offering = () => {
                   step="0.01"
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
+                  isInvalid={moneyMatch}
                 />
               </SPFormGroup>
             </Form>
             {offeringType === OfferingType.LOVE_OFFERING && (
-              <CashAppButton amount={amount} />
+              <CashAppButton amount={amount} matcher={!moneyMatch} />
             )}
             {offeringType !== OfferingType.LOVE_OFFERING && (
               <PayPalScriptProvider options={{
@@ -195,7 +211,7 @@ const Offering = () => {
                 components: "buttons,funding-eligibility",
                 "enable-funding": "venmo"
               }}>
-                <VenmoButton amount={amount} offeringType={offeringType} />
+                <VenmoButton amount={amount} offeringType={offeringType} matcher={!moneyMatch} />
               </PayPalScriptProvider>
             )}
           </OfferingBox>
