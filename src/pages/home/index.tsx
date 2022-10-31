@@ -66,7 +66,7 @@ const Home = () => {
               <h3 style={{ fontStyle: 'italic', color: '#B0B0B0' }}>Austin, Texas - Pastor Bobby Bullard</h3>
               <Divide width="10%" />
               <h2><b>Morning Worship</b> - Sundays at 11:00 AM</h2>
-              <h2><b>Sunday School</b> - Sundays at 10:00 AM</h2>
+              <h2><b>Sunday School</b> - Sundays at 9:45 AM</h2>
               <h2><b>Bible Study</b> - Wednesdays at 7:00 PM</h2>
               <SPButton text="Watch Service Live" href="#live-service" style={{ margin: '1% 0px', width: '100%' }} anchor />
             </Container>
@@ -106,7 +106,7 @@ const Home = () => {
                   <Divide width="80%" opacity={0.75} />
                   <b>Sunday School</b>
                   <hr style={{ width: 0, margin: 0 }} />
-                  Sundays at 10:00 AM
+                  Sundays at 9:45 AM
                   <Divide width="80%" opacity={0.75} />
                   <b>Bible Study</b>
                   <hr style={{ width: 0, margin: 0 }} />
@@ -175,7 +175,6 @@ export default Home;
 // TODO set up auth0 account
 // TODO set up paypal account
 // TODO set up render instances
-// TODO set up emailjs
 // TODO calendar view of events
 // TODO paginate events
 // TODO /live
