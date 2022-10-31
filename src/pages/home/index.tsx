@@ -170,9 +170,6 @@ const Home = () => {
 
 export default Home;
 
-// TODO set up cloudinary account
-// TODO set up google account
-// TODO set up auth0 account
 // TODO set up paypal account
 // TODO set up render instances
 // TODO calendar view of events
