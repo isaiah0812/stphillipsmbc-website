@@ -67,7 +67,10 @@ const VenmoButton = ({ amount, offeringType, matcher }: VenmoButtonProps): JSX.E
                 currency_code: "USD",
                 value: amount
               },
-              description: "St. Phillips MBC " + offeringType
+              description: "St. Phillips MBC " + offeringType,
+              payee: {
+                email_address: 'stphillipsmbcatx@gmail.com'
+              }
             }
           ]
         }).then((orderId) => {
