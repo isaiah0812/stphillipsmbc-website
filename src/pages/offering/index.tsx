@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
-import { Button, Container, Form, Spinner } from 'react-bootstrap';
-import { PayPalButtons, PayPalScriptProvider, usePayPalScriptReducer } from '@paypal/react-paypal-js';
+import { useState } from 'react';
+import { Button, Container, Form } from 'react-bootstrap';
 import { Divide, Header, ShadowBox, SPFormGroup } from '../../components/styledComponents';
 import styled from 'styled-components';
 import { mobileThreshold } from '../../utils/constants';
@@ -40,51 +39,43 @@ interface VenmoButtonProps {
 }
 
 const VenmoButton = ({ amount, offeringType, matcher }: VenmoButtonProps): JSX.Element => {
-  const [{ options, isPending }, dispatch] = usePayPalScriptReducer()
+  const [ bgColor, setBgColor ] = useState<string>('#008CFF');
 
-  useEffect(() => {
-    dispatch({
-      type: "resetOptions",
-      value: {
-        ...options,
-        currency: "USD"
-      }
-    })
-  }, [])
+  const hover = () => setBgColor('#008bee');
+  const leave = () => setBgColor('#008CFF');
 
-  return <>
-    { (isPending) && <Spinner animation="border" role="status" /> }
-    <PayPalButtons 
-      fundingSource='venmo' 
-      style={{ color: 'blue' }}
-      forceReRender={[amount, offeringType]}
-      disabled={offeringType === undefined || !matcher || !amount}
-      createOrder={(data, actions) => {
-        return actions.order.create({
-          purchase_units: [
-            {
-              amount: {
-                currency_code: "USD",
-                value: amount
-              },
-              description: "St. Phillips MBC " + offeringType,
-              payee: {
-                email_address: 'stphillipsmbcatx@gmail.com'
-              }
-            }
-          ]
-        }).then((orderId) => {
-          console.log(orderId)
-          return orderId
-        })
-      }}
-      onError={(error) => {
-        console.log(error)
-      }}
-    >
-      <h4>Error Loading Venmo Button. Try refreshing the page.</h4>
-    </PayPalButtons>
-  </>
+  const onClick = () => {
+    if (matcher) {
+      window.open(
+        `https://venmo.com/?txn=pay&audience=private&recipients=StPhillips-BaptistChurch&amount=${amount}&note=St.%20Phillips%20MBC%20${encodeURIComponent(offeringType!.toString())}`,
+        '_blank'
+      );
+    }
+  }
+
+  return (
+    <Button
+      onMouseEnter={hover}
+      onMouseLeave={leave}
+      type="submit"
+      onClick={onClick}
+      disabled={!matcher || !offeringType}
+      style={{
+        backgroundColor: bgColor,
+        borderColor: bgColor,
+        borderRadius: 4,
+        width: '100%',
+        height: 45,
+        maxWidth: 750,
+        overflow: 'hidden',
+        padding: 0,
+        transition: 'opacity 0s',
+        marginBottom: 10,
+        opacity: matcher ? 1 : 0.6
+      }}>
+      <img src="/venmoLogo.png" alt="Venmo" style={{ height: '38%' }} />
+    </Button>
+  )
 }
 
 interface CashAppButtonProps {
@@ -114,12 +105,13 @@ const CashAppButton = ({ amount, matcher }: CashAppButtonProps): JSX.Element => 
       style={{
         backgroundColor: bgColor,
         borderColor: bgColor,
+        borderRadius: 4,
         width: '100%',
         height: 45,
         maxWidth: 750,
         overflow: 'hidden',
         padding: 0,
-        transition: 'all 0.3s',
+        transition: 'opacity 0.3s',
         marginBottom: 10,
         opacity: matcher ? 1 : 0.6
       }}>
@@ -180,7 +172,7 @@ const Offering = () => {
               delightsome land, saith the LORD of hosts.
             </ScriptureText>
           </OfferingBox>
-          <OfferingBox>
+          <OfferingBox style={{ backgroundColor: 'rgba(71, 71, 71, 0)' }}>
             <Form>
               <h2>Give Your Offering Here</h2>
               <SPFormGroup>
@@ -209,13 +201,7 @@ const Offering = () => {
               <CashAppButton amount={amount} matcher={!moneyMatch} />
             )}
             {offeringType !== OfferingType.LOVE_OFFERING && (
-              <PayPalScriptProvider options={{
-                "client-id": process.env.REACT_APP_PAYPAL_ID as string,
-                components: "buttons,funding-eligibility",
-                "enable-funding": "venmo"
-              }}>
-                <VenmoButton amount={amount} offeringType={offeringType} matcher={!moneyMatch} />
-              </PayPalScriptProvider>
+              <VenmoButton amount={amount} offeringType={offeringType} matcher={!moneyMatch} />
             )}
           </OfferingBox>
         </Container>
