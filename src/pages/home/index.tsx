@@ -170,12 +170,9 @@ const Home = () => {
 
 export default Home;
 
-// TODO set up paypal account
-// TODO set up render instances
 // TODO calendar view of events
 // TODO paginate events
 // TODO /live
-// TODO add pastor bio
 // TODO add fullscreen view for pictures
 // TODO search bar for pictures
 // TODO search bar for events
