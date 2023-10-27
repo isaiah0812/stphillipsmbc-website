@@ -145,7 +145,7 @@ const Home = () => {
                 <iframe
                   style={{ border: 0, width: '100%', height: !mobile ? '100%' : 300, maxHeight: mobile ? 464 : undefined, margin: !mobile ? '0px 1em' : '0.5em 0px 0px' }}
                   referrerPolicy="no-referrer-when-downgrade"
-                  src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_MAPS_EMBED_KEY}&q=${googleEncodeAddress(recentEvent?.location)}`}
+                  src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_MAPS_EMBED_KEY}&q=${googleEncodeAddress(recentEvent?.location)}`}
                   allowFullScreen />
               </ShadowBox>
             )}

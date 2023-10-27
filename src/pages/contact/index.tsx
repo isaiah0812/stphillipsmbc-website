@@ -32,15 +32,15 @@ const Contact = () => {
     e.preventDefault();
 
     emailjs.send(
-      process.env.REACT_APP_EMAIL_SERVICE!, 
-      process.env.REACT_APP_EMAIL_TEMPLATE!, 
+      import.meta.env.VITE_EMAIL_SERVICE, 
+      import.meta.env.VITE_EMAIL_TEMPLATE, 
       { 
         name, 
         email, 
         message,
         'g-recaptcha-response': reCaptchaResponse
       }, 
-      process.env.REACT_APP_EMAIL_USER!)
+      import.meta.env.VITE_EMAIL_USER)
       .then((result) => {
         setFormStatus('accepted');
       })
@@ -109,7 +109,7 @@ const Contact = () => {
                   <Form.Control required name="message" value={message} onChange={(e) => setMessage(e.target.value)} as="textarea" placeholder="Message" rows={7} />
                 </SPFormGroup>
                 <SPFormGroup>
-                  <ReCAPTCHA sitekey={process.env.REACT_APP_RECAPTCHA_KEY!} onChange={setReCaptchaResponse} />
+                  <ReCAPTCHA sitekey={import.meta.env.VITE_RECAPTCHA_KEY} onChange={setReCaptchaResponse} />
                   <Form.Text style={{ color: 'white' }}>You must verify before submitting the form.</Form.Text>
                 </SPFormGroup>
                 <SPButton text="Submit" submit />
