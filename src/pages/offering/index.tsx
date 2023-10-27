@@ -4,7 +4,7 @@ import { Divide, Header, ShadowBox, SPFormGroup } from '../../components/styledC
 import styled from 'styled-components';
 import { mobileThreshold } from '../../utils/constants';
 import { Helmet } from 'react-helmet';
-import { ReactComponent as CashAppLogo } from '../../assets/cashAppLogo.svg';
+import CashAppLogo from '../../assets/cashAppLogo';
 
 const OfferingBox = styled(ShadowBox)`
   width: calc(50% - 1em);

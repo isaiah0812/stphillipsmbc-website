@@ -143,7 +143,7 @@ const Events = (): JSX.Element => {
             <RecentEventContainer fluid>
               <RecentEventIFrame
                 referrerPolicy="no-referrer-when-downgrade"
-                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_MAPS_EMBED_KEY}&q=${googleEncodeAddress(mostRecent.location)}`}
+                src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_MAPS_EMBED_KEY}&q=${googleEncodeAddress(mostRecent.location)}`}
                 allowFullScreen />
               <RecentEventDescription fluid>
                 <h1 style={{ fontSize: '3em' }}>Next Event: {mostRecent.name}</h1>
@@ -195,7 +195,7 @@ const Events = (): JSX.Element => {
               <iframe
                 style={{ border: 0, width: '100%', minHeight: 464 }}
                 referrerPolicy="no-referrer-when-downgrade"
-                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_MAPS_EMBED_KEY}&q=${googleEncodeAddress(selectedEvent.location)}`}
+                src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_MAPS_EMBED_KEY}&q=${googleEncodeAddress(selectedEvent.location)}`}
                 allowFullScreen />
             </Modal.Body>
         </Modal>
